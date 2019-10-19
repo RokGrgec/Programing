@@ -13,7 +13,9 @@ namespace WindowsFormsApp
 {
     public partial class Form1 : Form
     {
-
+        ChoseFavPlayer chosefavplayer;
+        public Reprezentation rep;
+        ChoseFavPlayer favplayerform;
         public Form1()
         {
             InitializeComponent();
@@ -24,6 +26,7 @@ namespace WindowsFormsApp
         {
             comboBox1.Show();
             label1.Show();
+
         }
 
 
@@ -41,9 +44,21 @@ namespace WindowsFormsApp
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public async void button1_Click(object sender, EventArgs e)
         {
-            
+            string fifa_code = await Task.Run(() => Contributor.CountryFifaCode(comboBox1.Text));
+            chosefavplayer.Show();
+            rep = new Reprezentation(comboBox1.Text, fifa_code);
+        }
+
+        internal void ShowMain()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void SetUpMain()
+        {
+            throw new NotImplementedException();
         }
     }
 }

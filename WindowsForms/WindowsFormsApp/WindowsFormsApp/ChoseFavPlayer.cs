@@ -15,6 +15,7 @@ namespace WindowsFormsApp
     public partial class ChoseFavPlayer : Form
     {
         private Form1 form;
+        ChoseFavPlayer choseFavPlayer;
         public ChoseFavPlayer()
         {
             InitializeComponent();
@@ -31,7 +32,13 @@ namespace WindowsFormsApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            foreach (var p in checkedListBox1.CheckedItems.Cast<object>().Select(x => checkedListBox1.GetItemText(x)))
+            {
+                form.rep.players[p].is_fav_player = true;
+            }
+            Hide();
+            form.SetUpMain();
+            form.ShowMain();
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)

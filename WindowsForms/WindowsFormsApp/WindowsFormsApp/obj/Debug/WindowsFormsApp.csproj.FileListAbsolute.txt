@@ -16,3 +16,5 @@ C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WindowsFormsApp\bin\Debug\Re
 C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WindowsFormsApp\bin\Debug\DataLayer.pdb
 C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WindowsFormsApp\bin\Debug\DataLayer.dll.config
 C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WindowsFormsApp\bin\Debug\RestSharp.xml
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.ChoseFavPlayer.resources
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.ChoseLanguage.resources
