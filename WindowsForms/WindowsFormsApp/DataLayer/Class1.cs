@@ -43,7 +43,7 @@ namespace DataLayer
             dynamic response = JsonConvert.DeserializeObject(await Task.Run(() => GetUrl(TeamsUrl)));
             foreach (var s in response)
             {
-                if (s.fifa_code == chosenTeam)
+                if (s.country == chosenTeam)
                 {
                     return s.fifa_code;
                 }

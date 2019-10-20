@@ -15,14 +15,14 @@ namespace WindowsFormsApp
     public partial class ChoseFavPlayer : Form
     {
         private Form1 form;
-        ChoseFavPlayer choseFavPlayer;
-        public ChoseFavPlayer()
+       
+        public ChoseFavPlayer(Form1 form)
         {
             InitializeComponent();
             this.form = form;
         }
 
-        private async void FillPlayers(Dictionary<string,PlayerInfo> players)
+        public async void FillPlayers(Dictionary<string,PlayerInfo> players)
         {
             foreach (var player in players)
             {
@@ -39,6 +39,14 @@ namespace WindowsFormsApp
             Hide();
             form.SetUpMain();
             form.ShowMain();
+        }
+
+        private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (e.NewValue == CheckState.Checked && checkedListBox1.CheckedItems.Count >= 3)
+            {
+                e.NewValue = CheckState.Unchecked;
+            }
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
