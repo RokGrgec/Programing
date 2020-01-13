@@ -14,7 +14,7 @@ namespace DataLayer
     public static class Contributor
     {
 
-        private const string TeamsUrl = "https://world-cup-json-2018.herokuapp.com/teams";
+        private const string RepUrl = "https://world-cup-json-2018.herokuapp.com/teams";
         private const string MatchesUrl = "https://world-cup-json-2018.herokuapp.com/matches/country?fifa_code=";
         private const string ResultsUrl = "https://world-cup-json-2018.herokuapp.com/teams/results";
 
@@ -26,9 +26,9 @@ namespace DataLayer
             return response.Content;
         }
 
-        public static async Task<List<string>> TeamNames()
+        public static async Task<List<string>> ReprezentationNames()
         {
-            dynamic response = JsonConvert.DeserializeObject(await Task.Run(() => GetUrl(TeamsUrl)));
+            dynamic response = JsonConvert.DeserializeObject(await Task.Run(() => GetUrl(RepUrl)));
             List<string> country = new List<string>();
             foreach (var s in response)
             {
@@ -39,8 +39,8 @@ namespace DataLayer
 
         public static async Task<string> CountryFifaCode(string chosenTeam)
         {
-            await GetUrl(TeamsUrl);
-            dynamic response = JsonConvert.DeserializeObject(await Task.Run(() => GetUrl(TeamsUrl)));
+            await GetUrl(RepUrl);
+            dynamic response = JsonConvert.DeserializeObject(await Task.Run(() => GetUrl(RepUrl)));
             foreach (var s in response)
             {
                 if (s.country == chosenTeam)
@@ -100,7 +100,39 @@ namespace DataLayer
             throw new ArgumentException($"Cant find {countryName} results");
         }
 
+        /// <summary>
+        /// Reads config file, returns List<string> [0] language | [1] name | [2] fav players(split with ,)
+        /// </summary>
+        public static List<string> ReadConfigFile()
+        {
+            List<string> r = File.ReadAllText(@"..\..\..\config.txt").Split('|').ToList();
+            Console.WriteLine($"Found existing config file\n Language: {r[0]}\n Team: {r[1]} \nFavorite players: {r[2]}\n");
+            return r;
+        }
 
+        /// <summary>
+        /// Saves app data to config file
+        /// </summary>
+        public static void SaveDataToFile(Reprezentation r, string lng)
+        {
+            string favPlayers = "";
+            foreach (var p in r.players)
+            {
+                if (p.Value.is_fav_player)
+                {
+                    favPlayers += p.Value.player_name + ",";
+                }
+            }
+            favPlayers = favPlayers.Remove(favPlayers.Length - 1);
+
+            FileStream fs = new FileStream(@"..\..\..\config.txt", FileMode.Create, FileAccess.Write, FileShare.Write);
+            fs.Close();
+            using (StreamWriter sw = new StreamWriter(@"..\..\..\config.txt", true, Encoding.ASCII))
+            {
+                sw.Write($"{lng}|{r.teamName}|{favPlayers}");
+            }
+            Console.WriteLine($"Wrote new config to config.txt\n{lng}|{r.teamName}|{favPlayers}");
+        }
     }
 
 }

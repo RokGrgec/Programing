@@ -1,0 +1,24 @@
+﻿<Window x:Class="WPFWorldCupApp.LangChoser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFWorldCupApp"
+        mc:Ignorable="d"
+        Title="LangChoser" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="btn_eng" Content="English" HorizontalAlignment="Left" Margin="152,180,0,0" VerticalAlignment="Top" Width="175" Height="65" Click="Btn_eng_Click"/>
+        <Button x:Name="btn_cro" Content="Croatian" HorizontalAlignment="Left" Margin="461,180,0,0" VerticalAlignment="Top" Width="174" Height="65" Click="Btn_cro_Click"/>
+        <Label x:Name="lbl_choseLanguage" Content="Chose Language" HorizontalAlignment="Left" Margin="313,80,0,0" VerticalAlignment="Top" Height="42" Width="171" FontSize="20" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.583"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+
+    </Grid>
+</Window>

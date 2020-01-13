@@ -16,6 +16,8 @@ namespace WindowsFormsApp
     {
         private Form1 form;
        
+        
+
         public ChoseFavPlayer(Form1 form)
         {
             InitializeComponent();
@@ -26,19 +28,22 @@ namespace WindowsFormsApp
         {
             foreach (var player in players)
             {
-                checkedListBox1.Items.Add(player);
+                checkedListBox1.Items.Add(player.Value.player_name);
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             foreach (var p in checkedListBox1.CheckedItems.Cast<object>().Select(x => checkedListBox1.GetItemText(x)))
             {
                 form.rep.players[p].is_fav_player = true;
             }
+
             Hide();
-            form.SetUpMain();
+            form.FillDgv();
             form.ShowMain();
+            
         }
 
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)

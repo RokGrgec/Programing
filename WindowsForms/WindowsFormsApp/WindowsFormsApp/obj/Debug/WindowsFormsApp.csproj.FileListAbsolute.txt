@@ -18,3 +18,4 @@ C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WindowsFormsApp\bin\Debug\Da
 C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WindowsFormsApp\bin\Debug\RestSharp.xml
 C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.ChoseFavPlayer.resources
 C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.ChoseLanguage.resources
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.RangLists.resources

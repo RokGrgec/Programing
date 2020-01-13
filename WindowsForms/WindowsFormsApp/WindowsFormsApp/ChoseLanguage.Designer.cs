@@ -73,6 +73,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ChoseLanguage";
             this.Text = "ChoseLanguage";
+            this.Load += new System.EventHandler(this.ChoseLanguage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
