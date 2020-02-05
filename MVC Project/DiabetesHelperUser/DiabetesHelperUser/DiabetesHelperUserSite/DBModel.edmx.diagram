@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0bfe0cce6d7347c78a328bfbe4e592ee" Name="Diagram1">
+        <EntityTypeShape EntityType="Database1Model.Admin" Width="1.5" PointX="14.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.CombDefinition" Width="1.5" PointX="7.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.FoodType" Width="1.5" PointX="0.875" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Good" Width="1.5" PointX="2.875" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Meal" Width="1.5" PointX="5.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.MealCombination" Width="1.5" PointX="9.875" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.MealName" Width="1.5" PointX="5.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.MeasuringUnit" Width="1.5" PointX="2.875" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Menu" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.User" Width="1.5" PointX="9.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.UserInfo" Width="1.5" PointX="14.875" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="Database1Model.FK__CombDefin__MealC__42ACE4D4" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__CombDefin__MealN__41B8C09B" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Good__IDType__05A3D694" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Good__IDMeasurin__04AFB25B" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Meal__IDGood__03BB8E22" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Meal__IDMealName__078C1F06" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Meal__IDMenu__0697FACD" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Menu__IDUser__09746778" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

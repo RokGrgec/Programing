@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities1">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="Database1Model.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CombDefinitions">
+      <EntityTypeMapping TypeName="Database1Model.CombDefinition">
+        <MappingFragment StoreEntitySet="CombDefinition">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FatPerCent" ColumnName="FatPerCent" />
+          <ScalarProperty Name="CarbPerCent" ColumnName="CarbPerCent" />
+          <ScalarProperty Name="ProteinPerCent" ColumnName="ProteinPerCent" />
+          <ScalarProperty Name="TotalPer" ColumnName="TotalPer" />
+          <ScalarProperty Name="MealNameID" ColumnName="MealNameID" />
+          <ScalarProperty Name="MealCombinationID" ColumnName="MealCombinationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FoodTypes">
+      <EntityTypeMapping TypeName="Database1Model.FoodType">
+        <MappingFragment StoreEntitySet="FoodType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Goods">
+      <EntityTypeMapping TypeName="Database1Model.Good">
+        <MappingFragment StoreEntitySet="Good">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Energy_kcal" ColumnName="Energy_kcal" />
+          <ScalarProperty Name="Energy_kJ" ColumnName="Energy_kJ" />
+          <ScalarProperty Name="IDType" ColumnName="IDType" />
+          <ScalarProperty Name="IDMeasuringUnit" ColumnName="IDMeasuringUnit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Meals">
+      <EntityTypeMapping TypeName="Database1Model.Meal">
+        <MappingFragment StoreEntitySet="Meal">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IDMenu" ColumnName="IDMenu" />
+          <ScalarProperty Name="IDMealName" ColumnName="IDMealName" />
+          <ScalarProperty Name="IDGood" ColumnName="IDGood" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MealCombinations">
+      <EntityTypeMapping TypeName="Database1Model.MealCombination">
+        <MappingFragment StoreEntitySet="MealCombination">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumOfMeals" ColumnName="NumOfMeals" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="ValidUntil" ColumnName="ValidUntil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MealNames">
+      <EntityTypeMapping TypeName="Database1Model.MealName">
+        <MappingFragment StoreEntitySet="MealName">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeasuringUnits">
+      <EntityTypeMapping TypeName="Database1Model.MeasuringUnit">
+        <MappingFragment StoreEntitySet="MeasuringUnit">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="Database1Model.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="NumberOfMeals" ColumnName="NumberOfMeals" />
+          <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Database1Model.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Activity" ColumnName="Activity" />
+          <ScalarProperty Name="DiaType" ColumnName="DiaType" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

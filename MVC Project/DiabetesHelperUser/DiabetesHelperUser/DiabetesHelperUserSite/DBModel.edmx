@@ -1,0 +1,690 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CombDefinition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FatPerCent" Type="nvarchar" MaxLength="50" />
+          <Property Name="CarbPerCent" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProteinPerCent" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalPer" Type="nvarchar" MaxLength="50" />
+          <Property Name="MealNameID" Type="int" Nullable="false" />
+          <Property Name="MealCombinationID" Type="int" />
+        </EntityType>
+        <EntityType Name="FoodType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Good">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Energy_kcal" Type="int" />
+          <Property Name="Energy_kJ" Type="int" />
+          <Property Name="IDType" Type="int" />
+          <Property Name="IDMeasuringUnit" Type="int" />
+        </EntityType>
+        <EntityType Name="Meal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDMenu" Type="int" />
+          <Property Name="IDMealName" Type="int" />
+          <Property Name="IDGood" Type="int" />
+        </EntityType>
+        <EntityType Name="MealCombination">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumOfMeals" Type="int" />
+          <Property Name="DateCreated" Type="date" />
+          <Property Name="ValidUntil" Type="date" />
+        </EntityType>
+        <EntityType Name="MealName">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MeasuringUnit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateCreated" Type="date" />
+          <Property Name="NumberOfMeals" Type="int" />
+          <Property Name="IDUser" Type="int" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateOfBirth" Type="nvarchar" MaxLength="50" />
+          <Property Name="Height" Type="int" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="Activity" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiaType" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateOfBirth" Type="nvarchar" MaxLength="50" />
+          <Property Name="Height" Type="int" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="Activity" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiaType" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__CombDefin__MealC__42ACE4D4">
+          <End Role="MealCombination" Type="Self.MealCombination" Multiplicity="0..1" />
+          <End Role="CombDefinition" Type="Self.CombDefinition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MealCombination">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CombDefinition">
+              <PropertyRef Name="MealCombinationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CombDefin__MealN__41B8C09B">
+          <End Role="MealName" Type="Self.MealName" Multiplicity="1" />
+          <End Role="CombDefinition" Type="Self.CombDefinition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MealName">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CombDefinition">
+              <PropertyRef Name="MealNameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Good__IDMeasurin__04AFB25B">
+          <End Role="MeasuringUnit" Type="Self.MeasuringUnit" Multiplicity="0..1" />
+          <End Role="Good" Type="Self.Good" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MeasuringUnit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Good">
+              <PropertyRef Name="IDMeasuringUnit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Good__IDType__05A3D694">
+          <End Role="FoodType" Type="Self.FoodType" Multiplicity="0..1" />
+          <End Role="Good" Type="Self.Good" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Good">
+              <PropertyRef Name="IDType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Meal__IDGood__03BB8E22">
+          <End Role="Good" Type="Self.Good" Multiplicity="0..1" />
+          <End Role="Meal" Type="Self.Meal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Good">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Meal">
+              <PropertyRef Name="IDGood" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Meal__IDMealName__078C1F06">
+          <End Role="MealName" Type="Self.MealName" Multiplicity="0..1" />
+          <End Role="Meal" Type="Self.Meal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MealName">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Meal">
+              <PropertyRef Name="IDMealName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Meal__IDMenu__0697FACD">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
+          <End Role="Meal" Type="Self.Meal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Meal">
+              <PropertyRef Name="IDMenu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Menu__IDUser__09746778">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1ModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CombDefinition" EntityType="Self.CombDefinition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FoodType" EntityType="Self.FoodType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Good" EntityType="Self.Good" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Meal" EntityType="Self.Meal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MealCombination" EntityType="Self.MealCombination" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MealName" EntityType="Self.MealName" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MeasuringUnit" EntityType="Self.MeasuringUnit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CombDefin__MealC__42ACE4D4" Association="Self.FK__CombDefin__MealC__42ACE4D4">
+            <End Role="MealCombination" EntitySet="MealCombination" />
+            <End Role="CombDefinition" EntitySet="CombDefinition" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CombDefin__MealN__41B8C09B" Association="Self.FK__CombDefin__MealN__41B8C09B">
+            <End Role="MealName" EntitySet="MealName" />
+            <End Role="CombDefinition" EntitySet="CombDefinition" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Good__IDMeasurin__04AFB25B" Association="Self.FK__Good__IDMeasurin__04AFB25B">
+            <End Role="MeasuringUnit" EntitySet="MeasuringUnit" />
+            <End Role="Good" EntitySet="Good" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Good__IDType__05A3D694" Association="Self.FK__Good__IDType__05A3D694">
+            <End Role="FoodType" EntitySet="FoodType" />
+            <End Role="Good" EntitySet="Good" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Meal__IDGood__03BB8E22" Association="Self.FK__Meal__IDGood__03BB8E22">
+            <End Role="Good" EntitySet="Good" />
+            <End Role="Meal" EntitySet="Meal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Meal__IDMealName__078C1F06" Association="Self.FK__Meal__IDMealName__078C1F06">
+            <End Role="MealName" EntitySet="MealName" />
+            <End Role="Meal" EntitySet="Meal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Meal__IDMenu__0697FACD" Association="Self.FK__Meal__IDMenu__0697FACD">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="Meal" EntitySet="Meal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Menu__IDUser__09746778" Association="Self.FK__Menu__IDUser__09746778">
+            <End Role="User" EntitySet="User" />
+            <End Role="Menu" EntitySet="Menu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CombDefinition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FatPerCent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CarbPerCent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProteinPerCent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalPer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MealNameID" Type="Int32" Nullable="false" />
+          <Property Name="MealCombinationID" Type="Int32" />
+          <NavigationProperty Name="MealCombination" Relationship="Self.FK__CombDefin__MealC__42ACE4D4" FromRole="CombDefinition" ToRole="MealCombination" />
+          <NavigationProperty Name="MealName" Relationship="Self.FK__CombDefin__MealN__41B8C09B" FromRole="CombDefinition" ToRole="MealName" />
+        </EntityType>
+        <EntityType Name="FoodType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK__Good__IDType__05A3D694" FromRole="FoodType" ToRole="Good" />
+        </EntityType>
+        <EntityType Name="Good">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Energy_kcal" Type="Int32" />
+          <Property Name="Energy_kJ" Type="Int32" />
+          <Property Name="IDType" Type="Int32" />
+          <Property Name="IDMeasuringUnit" Type="Int32" />
+          <NavigationProperty Name="FoodType" Relationship="Self.FK__Good__IDType__05A3D694" FromRole="Good" ToRole="FoodType" />
+          <NavigationProperty Name="MeasuringUnit" Relationship="Self.FK__Good__IDMeasurin__04AFB25B" FromRole="Good" ToRole="MeasuringUnit" />
+          <NavigationProperty Name="Meals" Relationship="Self.FK__Meal__IDGood__03BB8E22" FromRole="Good" ToRole="Meal" />
+        </EntityType>
+        <EntityType Name="Meal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDMenu" Type="Int32" />
+          <Property Name="IDMealName" Type="Int32" />
+          <Property Name="IDGood" Type="Int32" />
+          <NavigationProperty Name="Good" Relationship="Self.FK__Meal__IDGood__03BB8E22" FromRole="Meal" ToRole="Good" />
+          <NavigationProperty Name="MealName" Relationship="Self.FK__Meal__IDMealName__078C1F06" FromRole="Meal" ToRole="MealName" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK__Meal__IDMenu__0697FACD" FromRole="Meal" ToRole="Menu" />
+        </EntityType>
+        <EntityType Name="MealCombination">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumOfMeals" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Precision="0" />
+          <Property Name="ValidUntil" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="CombDefinitions" Relationship="Self.FK__CombDefin__MealC__42ACE4D4" FromRole="MealCombination" ToRole="CombDefinition" />
+        </EntityType>
+        <EntityType Name="MealName">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CombDefinitions" Relationship="Self.FK__CombDefin__MealN__41B8C09B" FromRole="MealName" ToRole="CombDefinition" />
+          <NavigationProperty Name="Meals" Relationship="Self.FK__Meal__IDMealName__078C1F06" FromRole="MealName" ToRole="Meal" />
+        </EntityType>
+        <EntityType Name="MeasuringUnit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK__Good__IDMeasurin__04AFB25B" FromRole="MeasuringUnit" ToRole="Good" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateCreated" Type="DateTime" Precision="0" />
+          <Property Name="NumberOfMeals" Type="Int32" />
+          <Property Name="IDUser" Type="Int32" />
+          <NavigationProperty Name="Meals" Relationship="Self.FK__Meal__IDMenu__0697FACD" FromRole="Menu" ToRole="Meal" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Menu__IDUser__09746778" FromRole="Menu" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Height" Type="Int32" />
+          <Property Name="Weight" Type="Int32" />
+          <Property Name="Activity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiaType" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Menus" Relationship="Self.FK__Menu__IDUser__09746778" FromRole="User" ToRole="Menu" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Height" Type="Int32" />
+          <Property Name="Weight" Type="Int32" />
+          <Property Name="Activity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiaType" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__CombDefin__MealC__42ACE4D4">
+          <End Role="MealCombination" Type="Self.MealCombination" Multiplicity="0..1" />
+          <End Role="CombDefinition" Type="Self.CombDefinition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MealCombination">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CombDefinition">
+              <PropertyRef Name="MealCombinationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CombDefin__MealN__41B8C09B">
+          <End Role="MealName" Type="Self.MealName" Multiplicity="1" />
+          <End Role="CombDefinition" Type="Self.CombDefinition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MealName">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CombDefinition">
+              <PropertyRef Name="MealNameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Good__IDType__05A3D694">
+          <End Role="FoodType" Type="Self.FoodType" Multiplicity="0..1" />
+          <End Role="Good" Type="Self.Good" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Good">
+              <PropertyRef Name="IDType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Good__IDMeasurin__04AFB25B">
+          <End Role="MeasuringUnit" Type="Self.MeasuringUnit" Multiplicity="0..1" />
+          <End Role="Good" Type="Self.Good" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MeasuringUnit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Good">
+              <PropertyRef Name="IDMeasuringUnit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Meal__IDGood__03BB8E22">
+          <End Role="Good" Type="Self.Good" Multiplicity="0..1" />
+          <End Role="Meal" Type="Self.Meal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Good">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Meal">
+              <PropertyRef Name="IDGood" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Meal__IDMealName__078C1F06">
+          <End Role="MealName" Type="Self.MealName" Multiplicity="0..1" />
+          <End Role="Meal" Type="Self.Meal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MealName">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Meal">
+              <PropertyRef Name="IDMealName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Meal__IDMenu__0697FACD">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
+          <End Role="Meal" Type="Self.Meal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Meal">
+              <PropertyRef Name="IDMenu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Menu__IDUser__09746778">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="CombDefinitions" EntityType="Self.CombDefinition" />
+          <EntitySet Name="FoodTypes" EntityType="Self.FoodType" />
+          <EntitySet Name="Goods" EntityType="Self.Good" />
+          <EntitySet Name="Meals" EntityType="Self.Meal" />
+          <EntitySet Name="MealCombinations" EntityType="Self.MealCombination" />
+          <EntitySet Name="MealNames" EntityType="Self.MealName" />
+          <EntitySet Name="MeasuringUnits" EntityType="Self.MeasuringUnit" />
+          <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
+          <AssociationSet Name="FK__CombDefin__MealC__42ACE4D4" Association="Self.FK__CombDefin__MealC__42ACE4D4">
+            <End Role="MealCombination" EntitySet="MealCombinations" />
+            <End Role="CombDefinition" EntitySet="CombDefinitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CombDefin__MealN__41B8C09B" Association="Self.FK__CombDefin__MealN__41B8C09B">
+            <End Role="MealName" EntitySet="MealNames" />
+            <End Role="CombDefinition" EntitySet="CombDefinitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Good__IDType__05A3D694" Association="Self.FK__Good__IDType__05A3D694">
+            <End Role="FoodType" EntitySet="FoodTypes" />
+            <End Role="Good" EntitySet="Goods" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Good__IDMeasurin__04AFB25B" Association="Self.FK__Good__IDMeasurin__04AFB25B">
+            <End Role="MeasuringUnit" EntitySet="MeasuringUnits" />
+            <End Role="Good" EntitySet="Goods" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Meal__IDGood__03BB8E22" Association="Self.FK__Meal__IDGood__03BB8E22">
+            <End Role="Good" EntitySet="Goods" />
+            <End Role="Meal" EntitySet="Meals" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Meal__IDMealName__078C1F06" Association="Self.FK__Meal__IDMealName__078C1F06">
+            <End Role="MealName" EntitySet="MealNames" />
+            <End Role="Meal" EntitySet="Meals" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Meal__IDMenu__0697FACD" Association="Self.FK__Meal__IDMenu__0697FACD">
+            <End Role="Menu" EntitySet="Menus" />
+            <End Role="Meal" EntitySet="Meals" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Menu__IDUser__09746778" Association="Self.FK__Menu__IDUser__09746778">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Menu" EntitySet="Menus" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="Database1Model.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CombDefinitions">
+            <EntityTypeMapping TypeName="Database1Model.CombDefinition">
+              <MappingFragment StoreEntitySet="CombDefinition">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FatPerCent" ColumnName="FatPerCent" />
+                <ScalarProperty Name="CarbPerCent" ColumnName="CarbPerCent" />
+                <ScalarProperty Name="ProteinPerCent" ColumnName="ProteinPerCent" />
+                <ScalarProperty Name="TotalPer" ColumnName="TotalPer" />
+                <ScalarProperty Name="MealNameID" ColumnName="MealNameID" />
+                <ScalarProperty Name="MealCombinationID" ColumnName="MealCombinationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodTypes">
+            <EntityTypeMapping TypeName="Database1Model.FoodType">
+              <MappingFragment StoreEntitySet="FoodType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Goods">
+            <EntityTypeMapping TypeName="Database1Model.Good">
+              <MappingFragment StoreEntitySet="Good">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Energy_kcal" ColumnName="Energy_kcal" />
+                <ScalarProperty Name="Energy_kJ" ColumnName="Energy_kJ" />
+                <ScalarProperty Name="IDType" ColumnName="IDType" />
+                <ScalarProperty Name="IDMeasuringUnit" ColumnName="IDMeasuringUnit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Meals">
+            <EntityTypeMapping TypeName="Database1Model.Meal">
+              <MappingFragment StoreEntitySet="Meal">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IDMenu" ColumnName="IDMenu" />
+                <ScalarProperty Name="IDMealName" ColumnName="IDMealName" />
+                <ScalarProperty Name="IDGood" ColumnName="IDGood" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MealCombinations">
+            <EntityTypeMapping TypeName="Database1Model.MealCombination">
+              <MappingFragment StoreEntitySet="MealCombination">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NumOfMeals" ColumnName="NumOfMeals" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="ValidUntil" ColumnName="ValidUntil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MealNames">
+            <EntityTypeMapping TypeName="Database1Model.MealName">
+              <MappingFragment StoreEntitySet="MealName">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeasuringUnits">
+            <EntityTypeMapping TypeName="Database1Model.MeasuringUnit">
+              <MappingFragment StoreEntitySet="MeasuringUnit">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="Database1Model.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="NumberOfMeals" ColumnName="NumberOfMeals" />
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Database1Model.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Activity" ColumnName="Activity" />
+                <ScalarProperty Name="DiaType" ColumnName="DiaType" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfoes">
+            <EntityTypeMapping TypeName="Database1Model.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Activity" ColumnName="Activity" />
+                <ScalarProperty Name="DiaType" ColumnName="DiaType" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,10 @@
+﻿@model DiabetesHelperUser.Models.UserLogin
+@{
+    ViewBag.Title = "";
+}
+
+<h2>Index</h2>
+
+Welcome, <h3>@Session["Name"].ToString()</h3> !
+
+<a href="@Url.Action("Logout", "User")">Logout</a>
