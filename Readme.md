@@ -1,3 +1,4 @@
-# Notes From C# Yellow Book
+## About
 
-- notes, exercises and projects from C# 
+[CSharp Yellow Book Notes](CSharpYellowBook)
+[MVC Project](MVC&Project)
