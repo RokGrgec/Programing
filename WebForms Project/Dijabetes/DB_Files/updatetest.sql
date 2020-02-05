@@ -1,0 +1,1 @@
+﻿select MealName.Id from MealName where [Name] = 'Vecera'
