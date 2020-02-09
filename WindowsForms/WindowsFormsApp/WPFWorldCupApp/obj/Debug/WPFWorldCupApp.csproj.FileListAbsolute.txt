@@ -1,0 +1,66 @@
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\bin\Debug\WPFWorldCupApp.exe
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\bin\Debug\DataLayer.dll
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\bin\Debug\RestSharp.dll
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\bin\Debug\WPFWorldCupApp.exe.config
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\bin\Debug\WPFWorldCupApp.exe
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\bin\Debug\WPFWorldCupApp.pdb
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\bin\Debug\DataLayer.dll
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\bin\Debug\RestSharp.dll
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\bin\Debug\DataLayer.pdb
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\bin\Debug\DataLayer.dll.config
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\bin\Debug\RestSharp.xml
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp.csprojAssemblyReference.cache
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\ChoseReprezentation.g.cs
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\LangChoser.g.cs
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\LoadingWindow.g.cs
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\MainWindow.g.cs
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\UserSettings.g.cs
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\VSRepChoser.g.cs
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\App.g.cs
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp_MarkupCompile.cache
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp_MarkupCompile.lref
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\ChoseReprezentation.baml
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\LangChoser.baml
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\LoadingWindow.baml
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\MainWindow.baml
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\UserSettings.baml
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\VSRepChoser.baml
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp.g.resources
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp.Properties.Resources.resources
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp.csproj.GenerateResource.cache
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp.csproj.CoreCompileInputs.cache
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp.csproj.CopyComplete
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp.exe
+C:\Users\rokgr\Desktop\WindowsForms - Copy\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp.pdb
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\bin\Debug\DataLayer.pdb
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\bin\Debug\DataLayer.dll.config
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\bin\Debug\RestSharp.xml
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp.csprojAssemblyReference.cache
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\ChoseReprezentation.g.cs
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\LangChoser.g.cs
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\LoadingWindow.g.cs
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\MainWindow.g.cs
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\UserSettings.g.cs
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\VSRepChoser.g.cs
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\App.g.cs
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp_MarkupCompile.cache
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp_MarkupCompile.lref
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\ChoseReprezentation.baml
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\LangChoser.baml
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\LoadingWindow.baml
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\MainWindow.baml
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\UserSettings.baml
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\VSRepChoser.baml
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp.g.resources
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp.Properties.Resources.resources
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp.csproj.GenerateResource.cache
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp.csproj.CoreCompileInputs.cache
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp.exe
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp.pdb
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\bin\Debug\WPFWorldCupApp.exe.config
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\bin\Debug\WPFWorldCupApp.pdb
+C:\Users\rokgr\Desktop\WindowsForms\WindowsFormsApp\WPFWorldCupApp\obj\Debug\WPFWorldCupApp.csproj.CopyComplete
