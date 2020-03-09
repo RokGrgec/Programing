@@ -1,3 +1,5 @@
+![Sea](https://i.imgur.com/m2YsgJM.jpg)
+
 ## About
 
 [CSharp Yellow Book Notes](CSharpYellowBook)
