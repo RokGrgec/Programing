@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="31630839f0e5406fba0fe5d0b5904d22" Name="Diagram1">
+        <EntityTypeShape EntityType="pppkDBModel.CostOfGasRefill" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pppkDBModel.Driver" Width="1.5" PointX="3.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="pppkDBModel.OccupyedVehicle" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pppkDBModel.OccupyingDriver" Width="1.5" PointX="6" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="pppkDBModel.Service" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="pppkDBModel.Status" Width="1.5" PointX="3.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pppkDBModel.TravelRoute" Width="1.5" PointX="8.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pppkDBModel.TravelWarrant" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="pppkDBModel.Vehicle" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <AssociationConnector Association="pppkDBModel.FK__CostOfGas__IDTra__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="pppkDBModel.FK__Occupying__IDDri__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="pppkDBModel.FK__TravelWar__IDDri__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="pppkDBModel.FK__OccupyedV__IDVeh__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="pppkDBModel.FK__Service__IDTrave__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="pppkDBModel.FK__Service__IDVehic__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="pppkDBModel.FK__TravelWar__IDSta__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="pppkDBModel.FK__TravelRou__IDTra__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="pppkDBModel.FK__TravelWar__IDVeh__2C3393D0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

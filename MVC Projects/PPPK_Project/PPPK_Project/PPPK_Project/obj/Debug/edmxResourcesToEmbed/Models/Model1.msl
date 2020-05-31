@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="pppkDBModelStoreContainer" CdmEntityContainer="pppkDBEntities">
+    <EntitySetMapping Name="CostOfGasRefill">
+      <EntityTypeMapping TypeName="pppkDBModel.CostOfGasRefill">
+        <MappingFragment StoreEntitySet="CostOfGasRefill">
+          <ScalarProperty Name="CostOfGasRefillID" ColumnName="CostOfGasRefillID" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="RefillPlaceName" ColumnName="RefillPlaceName" />
+          <ScalarProperty Name="AmountRefilledInLiters" ColumnName="AmountRefilledInLiters" />
+          <ScalarProperty Name="CostOfRefill" ColumnName="CostOfRefill" />
+          <ScalarProperty Name="IDTravelWarrant" ColumnName="IDTravelWarrant" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Driver">
+      <EntityTypeMapping TypeName="pppkDBModel.Driver">
+        <MappingFragment StoreEntitySet="Driver">
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="DriverLicenceNumber" ColumnName="DriverLicenceNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OccupyedVehicle">
+      <EntityTypeMapping TypeName="pppkDBModel.OccupyedVehicle">
+        <MappingFragment StoreEntitySet="OccupyedVehicle">
+          <ScalarProperty Name="OccupyedVehicleID" ColumnName="OccupyedVehicleID" />
+          <ScalarProperty Name="DateOccupyingStarted" ColumnName="DateOccupyingStarted" />
+          <ScalarProperty Name="IDVehicle" ColumnName="IDVehicle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OccupyingDriver">
+      <EntityTypeMapping TypeName="pppkDBModel.OccupyingDriver">
+        <MappingFragment StoreEntitySet="OccupyingDriver">
+          <ScalarProperty Name="OccupyingDriverID" ColumnName="OccupyingDriverID" />
+          <ScalarProperty Name="DateOccupyingStarted" ColumnName="DateOccupyingStarted" />
+          <ScalarProperty Name="IDDriver" ColumnName="IDDriver" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Service">
+      <EntityTypeMapping TypeName="pppkDBModel.Service">
+        <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+          <ScalarProperty Name="PlaceOfService" ColumnName="PlaceOfService" />
+          <ScalarProperty Name="NameOfService" ColumnName="NameOfService" />
+          <ScalarProperty Name="CostOfService" ColumnName="CostOfService" />
+          <ScalarProperty Name="ServiceInfo" ColumnName="ServiceInfo" />
+          <ScalarProperty Name="IDVehicle" ColumnName="IDVehicle" />
+          <ScalarProperty Name="IDTravelWarrant" ColumnName="IDTravelWarrant" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="pppkDBModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TravelRoute">
+      <EntityTypeMapping TypeName="pppkDBModel.TravelRoute">
+        <MappingFragment StoreEntitySet="TravelRoute">
+          <ScalarProperty Name="TravelRouteID" ColumnName="TravelRouteID" />
+          <ScalarProperty Name="x_cordinate_ofDeparture" ColumnName="x_cordinate_ofDeparture" />
+          <ScalarProperty Name="y_cordinate_ofDeparture" ColumnName="y_cordinate_ofDeparture" />
+          <ScalarProperty Name="x_cordinate_ofArrival" ColumnName="x_cordinate_ofArrival" />
+          <ScalarProperty Name="y_cordinate_ofArrival" ColumnName="y_cordinate_ofArrival" />
+          <ScalarProperty Name="TotalTravelDistance" ColumnName="TotalTravelDistance" />
+          <ScalarProperty Name="AverageSpeed" ColumnName="AverageSpeed" />
+          <ScalarProperty Name="IDTravelWarrant" ColumnName="IDTravelWarrant" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TravelWarrant">
+      <EntityTypeMapping TypeName="pppkDBModel.TravelWarrant">
+        <MappingFragment StoreEntitySet="TravelWarrant">
+          <ScalarProperty Name="TravelWarrantID" ColumnName="TravelWarrantID" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="StartingDate" ColumnName="StartingDate" />
+          <ScalarProperty Name="EndingDate" ColumnName="EndingDate" />
+          <ScalarProperty Name="IDStatus" ColumnName="IDStatus" />
+          <ScalarProperty Name="IDDriver" ColumnName="IDDriver" />
+          <ScalarProperty Name="IDVehicle" ColumnName="IDVehicle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicle">
+      <EntityTypeMapping TypeName="pppkDBModel.Vehicle">
+        <MappingFragment StoreEntitySet="Vehicle">
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+          <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+          <ScalarProperty Name="VehicleBrand" ColumnName="VehicleBrand" />
+          <ScalarProperty Name="ProductionYear" ColumnName="ProductionYear" />
+          <ScalarProperty Name="StartingKilometers" ColumnName="StartingKilometers" />
+          <ScalarProperty Name="CurrentKilometers" ColumnName="CurrentKilometers" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="clean_database" FunctionName="pppkDBModel.Store.clean_database" />
+    <FunctionImportMapping FunctionImportName="delete_driver" FunctionName="pppkDBModel.Store.delete_driver" />
+    <FunctionImportMapping FunctionImportName="delete_service" FunctionName="pppkDBModel.Store.delete_service" />
+    <FunctionImportMapping FunctionImportName="delete_travelroute" FunctionName="pppkDBModel.Store.delete_travelroute" />
+    <FunctionImportMapping FunctionImportName="delete_travelwarrant" FunctionName="pppkDBModel.Store.delete_travelwarrant" />
+    <FunctionImportMapping FunctionImportName="delete_vehicle" FunctionName="pppkDBModel.Store.delete_vehicle" />
+    <FunctionImportMapping FunctionImportName="disable_id_insert" FunctionName="pppkDBModel.Store.disable_id_insert" />
+    <FunctionImportMapping FunctionImportName="enable_id_insert" FunctionName="pppkDBModel.Store.enable_id_insert" />
+    <FunctionImportMapping FunctionImportName="insert_costofgasrefill" FunctionName="pppkDBModel.Store.insert_costofgasrefill" />
+    <FunctionImportMapping FunctionImportName="insert_driver" FunctionName="pppkDBModel.Store.insert_driver" />
+    <FunctionImportMapping FunctionImportName="insert_dummy_data" FunctionName="pppkDBModel.Store.insert_dummy_data" />
+    <FunctionImportMapping FunctionImportName="insert_service" FunctionName="pppkDBModel.Store.insert_service" />
+    <FunctionImportMapping FunctionImportName="insert_travelwarrant" FunctionName="pppkDBModel.Store.insert_travelwarrant" />
+    <FunctionImportMapping FunctionImportName="insert_trevelroute" FunctionName="pppkDBModel.Store.insert_trevelroute" />
+    <FunctionImportMapping FunctionImportName="insert_vehicle" FunctionName="pppkDBModel.Store.insert_vehicle" />
+    <FunctionImportMapping FunctionImportName="select_all_travelwarrants" FunctionName="pppkDBModel.Store.select_all_travelwarrants">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="pppkDBModel.select_all_travelwarrants_Result">
+          <ScalarProperty Name="TravelWarrantID" ColumnName="TravelWarrantID" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="StartingDate" ColumnName="StartingDate" />
+          <ScalarProperty Name="EndingDate" ColumnName="EndingDate" />
+          <ScalarProperty Name="IDStatus" ColumnName="IDStatus" />
+          <ScalarProperty Name="IDDriver" ColumnName="IDDriver" />
+          <ScalarProperty Name="IDVehicle" ColumnName="IDVehicle" />
+          <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+          <ScalarProperty Name="VehicleBrand" ColumnName="VehicleBrand" />
+          <ScalarProperty Name="VehicleType1" ColumnName="VehicleType1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="select_travelwarrant" FunctionName="pppkDBModel.Store.select_travelwarrant">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="pppkDBModel.select_travelwarrant_Result">
+          <ScalarProperty Name="TravelWarrantID" ColumnName="TravelWarrantID" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="StartingDate" ColumnName="StartingDate" />
+          <ScalarProperty Name="EndingDate" ColumnName="EndingDate" />
+          <ScalarProperty Name="IDStatus" ColumnName="IDStatus" />
+          <ScalarProperty Name="IDDriver" ColumnName="IDDriver" />
+          <ScalarProperty Name="IDVehicle" ColumnName="IDVehicle" />
+          <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+          <ScalarProperty Name="VehicleBrand" ColumnName="VehicleBrand" />
+          <ScalarProperty Name="VehicleType1" ColumnName="VehicleType1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="pppkDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CostOfGasRefill">
+    <Key>
+      <PropertyRef Name="CostOfGasRefillID" />
+    </Key>
+    <Property Name="CostOfGasRefillID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="RefillPlaceName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="AmountRefilledInLiters" Type="Int32" />
+    <Property Name="CostOfRefill" Type="Int32" />
+    <Property Name="IDTravelWarrant" Type="Int32" />
+    <NavigationProperty Name="TravelWarrant" Relationship="Self.FK__CostOfGas__IDTra__32E0915F" FromRole="CostOfGasRefill" ToRole="TravelWarrant" />
+  </EntityType>
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="DriverID" />
+    </Key>
+    <Property Name="DriverID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DriverLicenceNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="OccupyingDriver" Relationship="Self.FK__Occupying__IDDri__38996AB5" FromRole="Driver" ToRole="OccupyingDriver" />
+    <NavigationProperty Name="TravelWarrant" Relationship="Self.FK__TravelWar__IDDri__2B3F6F97" FromRole="Driver" ToRole="TravelWarrant" />
+  </EntityType>
+  <EntityType Name="OccupyedVehicle">
+    <Key>
+      <PropertyRef Name="OccupyedVehicleID" />
+    </Key>
+    <Property Name="OccupyedVehicleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateOccupyingStarted" Type="DateTime" Precision="0" />
+    <Property Name="IDVehicle" Type="Int32" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK__OccupyedV__IDVeh__3B75D760" FromRole="OccupyedVehicle" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="OccupyingDriver">
+    <Key>
+      <PropertyRef Name="OccupyingDriverID" />
+    </Key>
+    <Property Name="OccupyingDriverID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateOccupyingStarted" Type="DateTime" Precision="0" />
+    <Property Name="IDDriver" Type="Int32" />
+    <NavigationProperty Name="Driver" Relationship="Self.FK__Occupying__IDDri__38996AB5" FromRole="OccupyingDriver" ToRole="Driver" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Name="ServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PlaceOfService" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="NameOfService" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CostOfService" Type="Int32" />
+    <Property Name="ServiceInfo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="IDVehicle" Type="Int32" />
+    <Property Name="IDTravelWarrant" Type="Int32" />
+    <NavigationProperty Name="TravelWarrant" Relationship="Self.FK__Service__IDTrave__300424B4" FromRole="Service" ToRole="TravelWarrant" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK__Service__IDVehic__2F10007B" FromRole="Service" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TravelWarrant" Relationship="Self.FK__TravelWar__IDSta__2A4B4B5E" FromRole="Status" ToRole="TravelWarrant" />
+  </EntityType>
+  <EntityType Name="TravelRoute">
+    <Key>
+      <PropertyRef Name="TravelRouteID" />
+    </Key>
+    <Property Name="TravelRouteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="x_cordinate_ofDeparture" Type="Decimal" Precision="20" Scale="10" />
+    <Property Name="y_cordinate_ofDeparture" Type="Decimal" Precision="20" Scale="10" />
+    <Property Name="x_cordinate_ofArrival" Type="Decimal" Precision="20" Scale="10" />
+    <Property Name="y_cordinate_ofArrival" Type="Decimal" Precision="20" Scale="10" />
+    <Property Name="TotalTravelDistance" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="AverageSpeed" Type="Decimal" Precision="6" Scale="2" />
+    <Property Name="IDTravelWarrant" Type="Int32" />
+    <NavigationProperty Name="TravelWarrant" Relationship="Self.FK__TravelRou__IDTra__35BCFE0A" FromRole="TravelRoute" ToRole="TravelWarrant" />
+  </EntityType>
+  <EntityType Name="TravelWarrant">
+    <Key>
+      <PropertyRef Name="TravelWarrantID" />
+    </Key>
+    <Property Name="TravelWarrantID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="StartingDate" Type="DateTime" Precision="0" />
+    <Property Name="EndingDate" Type="DateTime" Precision="0" />
+    <Property Name="IDStatus" Type="Int32" />
+    <Property Name="IDDriver" Type="Int32" />
+    <Property Name="IDVehicle" Type="Int32" />
+    <NavigationProperty Name="CostOfGasRefill" Relationship="Self.FK__CostOfGas__IDTra__32E0915F" FromRole="TravelWarrant" ToRole="CostOfGasRefill" />
+    <NavigationProperty Name="Driver" Relationship="Self.FK__TravelWar__IDDri__2B3F6F97" FromRole="TravelWarrant" ToRole="Driver" />
+    <NavigationProperty Name="Service" Relationship="Self.FK__Service__IDTrave__300424B4" FromRole="TravelWarrant" ToRole="Service" />
+    <NavigationProperty Name="Status" Relationship="Self.FK__TravelWar__IDSta__2A4B4B5E" FromRole="TravelWarrant" ToRole="Status" />
+    <NavigationProperty Name="TravelRoute" Relationship="Self.FK__TravelRou__IDTra__35BCFE0A" FromRole="TravelWarrant" ToRole="TravelRoute" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK__TravelWar__IDVeh__2C3393D0" FromRole="TravelWarrant" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="VehicleID" />
+    </Key>
+    <Property Name="VehicleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VehicleType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="VehicleBrand" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ProductionYear" Type="DateTime" Precision="0" />
+    <Property Name="StartingKilometers" Type="Int32" />
+    <Property Name="CurrentKilometers" Type="Int32" />
+    <NavigationProperty Name="OccupyedVehicle" Relationship="Self.FK__OccupyedV__IDVeh__3B75D760" FromRole="Vehicle" ToRole="OccupyedVehicle" />
+    <NavigationProperty Name="Service" Relationship="Self.FK__Service__IDVehic__2F10007B" FromRole="Vehicle" ToRole="Service" />
+    <NavigationProperty Name="TravelWarrant" Relationship="Self.FK__TravelWar__IDVeh__2C3393D0" FromRole="Vehicle" ToRole="TravelWarrant" />
+  </EntityType>
+  <Association Name="FK__CostOfGas__IDTra__32E0915F">
+    <End Role="TravelWarrant" Type="Self.TravelWarrant" Multiplicity="0..1" />
+    <End Role="CostOfGasRefill" Type="Self.CostOfGasRefill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TravelWarrant">
+        <PropertyRef Name="TravelWarrantID" />
+      </Principal>
+      <Dependent Role="CostOfGasRefill">
+        <PropertyRef Name="IDTravelWarrant" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Occupying__IDDri__38996AB5">
+    <End Role="Driver" Type="Self.Driver" Multiplicity="0..1" />
+    <End Role="OccupyingDriver" Type="Self.OccupyingDriver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverID" />
+      </Principal>
+      <Dependent Role="OccupyingDriver">
+        <PropertyRef Name="IDDriver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TravelWar__IDDri__2B3F6F97">
+    <End Role="Driver" Type="Self.Driver" Multiplicity="0..1" />
+    <End Role="TravelWarrant" Type="Self.TravelWarrant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverID" />
+      </Principal>
+      <Dependent Role="TravelWarrant">
+        <PropertyRef Name="IDDriver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OccupyedV__IDVeh__3B75D760">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
+    <End Role="OccupyedVehicle" Type="Self.OccupyedVehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="VehicleID" />
+      </Principal>
+      <Dependent Role="OccupyedVehicle">
+        <PropertyRef Name="IDVehicle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Service__IDTrave__300424B4">
+    <End Role="TravelWarrant" Type="Self.TravelWarrant" Multiplicity="0..1" />
+    <End Role="Service" Type="Self.Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TravelWarrant">
+        <PropertyRef Name="TravelWarrantID" />
+      </Principal>
+      <Dependent Role="Service">
+        <PropertyRef Name="IDTravelWarrant" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Service__IDVehic__2F10007B">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
+    <End Role="Service" Type="Self.Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="VehicleID" />
+      </Principal>
+      <Dependent Role="Service">
+        <PropertyRef Name="IDVehicle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TravelWar__IDSta__2A4B4B5E">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="TravelWarrant" Type="Self.TravelWarrant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="StatusID" />
+      </Principal>
+      <Dependent Role="TravelWarrant">
+        <PropertyRef Name="IDStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TravelRou__IDTra__35BCFE0A">
+    <End Role="TravelWarrant" Type="Self.TravelWarrant" Multiplicity="0..1" />
+    <End Role="TravelRoute" Type="Self.TravelRoute" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TravelWarrant">
+        <PropertyRef Name="TravelWarrantID" />
+      </Principal>
+      <Dependent Role="TravelRoute">
+        <PropertyRef Name="IDTravelWarrant" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TravelWar__IDVeh__2C3393D0">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
+    <End Role="TravelWarrant" Type="Self.TravelWarrant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="VehicleID" />
+      </Principal>
+      <Dependent Role="TravelWarrant">
+        <PropertyRef Name="IDVehicle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="pppkDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CostOfGasRefill" EntityType="Self.CostOfGasRefill" />
+    <EntitySet Name="Driver" EntityType="Self.Driver" />
+    <EntitySet Name="OccupyedVehicle" EntityType="Self.OccupyedVehicle" />
+    <EntitySet Name="OccupyingDriver" EntityType="Self.OccupyingDriver" />
+    <EntitySet Name="Service" EntityType="Self.Service" />
+    <EntitySet Name="Status" EntityType="Self.Status" />
+    <EntitySet Name="TravelRoute" EntityType="Self.TravelRoute" />
+    <EntitySet Name="TravelWarrant" EntityType="Self.TravelWarrant" />
+    <EntitySet Name="Vehicle" EntityType="Self.Vehicle" />
+    <AssociationSet Name="FK__CostOfGas__IDTra__32E0915F" Association="Self.FK__CostOfGas__IDTra__32E0915F">
+      <End Role="TravelWarrant" EntitySet="TravelWarrant" />
+      <End Role="CostOfGasRefill" EntitySet="CostOfGasRefill" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Occupying__IDDri__38996AB5" Association="Self.FK__Occupying__IDDri__38996AB5">
+      <End Role="Driver" EntitySet="Driver" />
+      <End Role="OccupyingDriver" EntitySet="OccupyingDriver" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TravelWar__IDDri__2B3F6F97" Association="Self.FK__TravelWar__IDDri__2B3F6F97">
+      <End Role="Driver" EntitySet="Driver" />
+      <End Role="TravelWarrant" EntitySet="TravelWarrant" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OccupyedV__IDVeh__3B75D760" Association="Self.FK__OccupyedV__IDVeh__3B75D760">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="OccupyedVehicle" EntitySet="OccupyedVehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Service__IDTrave__300424B4" Association="Self.FK__Service__IDTrave__300424B4">
+      <End Role="TravelWarrant" EntitySet="TravelWarrant" />
+      <End Role="Service" EntitySet="Service" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Service__IDVehic__2F10007B" Association="Self.FK__Service__IDVehic__2F10007B">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="Service" EntitySet="Service" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TravelWar__IDSta__2A4B4B5E" Association="Self.FK__TravelWar__IDSta__2A4B4B5E">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="TravelWarrant" EntitySet="TravelWarrant" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TravelRou__IDTra__35BCFE0A" Association="Self.FK__TravelRou__IDTra__35BCFE0A">
+      <End Role="TravelWarrant" EntitySet="TravelWarrant" />
+      <End Role="TravelRoute" EntitySet="TravelRoute" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TravelWar__IDVeh__2C3393D0" Association="Self.FK__TravelWar__IDVeh__2C3393D0">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="TravelWarrant" EntitySet="TravelWarrant" />
+    </AssociationSet>
+    <FunctionImport Name="clean_database" />
+    <FunctionImport Name="delete_driver" ReturnType="Collection(Int32)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="delete_service" ReturnType="Collection(Int32)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="delete_travelroute" ReturnType="Collection(Int32)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="delete_travelwarrant" ReturnType="Collection(Int32)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="delete_vehicle" ReturnType="Collection(Int32)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="disable_id_insert" />
+    <FunctionImport Name="enable_id_insert" />
+    <FunctionImport Name="insert_costofgasrefill">
+      <Parameter Name="datecreated" Mode="In" Type="DateTime" />
+      <Parameter Name="nameofplacerefilled" Mode="In" Type="String" />
+      <Parameter Name="amountofgasrefilledinliters" Mode="In" Type="Int32" />
+      <Parameter Name="costofgasrefilled" Mode="In" Type="Int32" />
+      <Parameter Name="travelwarrantID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insert_driver">
+      <Parameter Name="fname" Mode="In" Type="String" />
+      <Parameter Name="lastname" Mode="In" Type="String" />
+      <Parameter Name="phonenum" Mode="In" Type="String" />
+      <Parameter Name="driverlicensenum" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="insert_dummy_data" />
+    <FunctionImport Name="insert_service">
+      <Parameter Name="placeofservice" Mode="In" Type="String" />
+      <Parameter Name="nameofservice" Mode="In" Type="String" />
+      <Parameter Name="costofservice" Mode="In" Type="Int32" />
+      <Parameter Name="info" Mode="In" Type="String" />
+      <Parameter Name="vehicleID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insert_travelwarrant">
+      <Parameter Name="datecreated" Mode="In" Type="DateTime" />
+      <Parameter Name="dateofstart" Mode="In" Type="DateTime" />
+      <Parameter Name="dateofending" Mode="In" Type="DateTime" />
+      <Parameter Name="IDstatus" Mode="In" Type="Int32" />
+      <Parameter Name="IDDriver" Mode="In" Type="Int32" />
+      <Parameter Name="IDVehicle" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insert_trevelroute">
+      <Parameter Name="x_departure" Mode="In" Type="Decimal" />
+      <Parameter Name="y_departure" Mode="In" Type="Decimal" />
+      <Parameter Name="x_arrival" Mode="In" Type="Decimal" />
+      <Parameter Name="y_arrival" Mode="In" Type="Decimal" />
+      <Parameter Name="distance" Mode="In" Type="Decimal" />
+      <Parameter Name="speed" Mode="In" Type="Decimal" />
+      <Parameter Name="IDtravelwarrant" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insert_vehicle">
+      <Parameter Name="type" Mode="In" Type="String" />
+      <Parameter Name="model" Mode="In" Type="String" />
+      <Parameter Name="prodyear" Mode="In" Type="DateTime" />
+      <Parameter Name="startingkilometers" Mode="In" Type="Int32" />
+      <Parameter Name="currentkilometers" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="select_all_travelwarrants" ReturnType="Collection(pppkDBModel.select_all_travelwarrants_Result)" />
+    <FunctionImport Name="select_travelwarrant" ReturnType="Collection(pppkDBModel.select_travelwarrant_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="select_all_travelwarrants_Result">
+    <Property Type="Int32" Name="TravelWarrantID" Nullable="false" />
+    <Property Type="DateTime" Name="DateCreated" Nullable="true" />
+    <Property Type="DateTime" Name="StartingDate" Nullable="true" />
+    <Property Type="DateTime" Name="EndingDate" Nullable="true" />
+    <Property Type="Int32" Name="IDStatus" Nullable="true" />
+    <Property Type="Int32" Name="IDDriver" Nullable="true" />
+    <Property Type="Int32" Name="IDVehicle" Nullable="true" />
+    <Property Type="String" Name="StatusType" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Surname" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="VehicleType" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="VehicleBrand" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="VehicleType1" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="select_travelwarrant_Result">
+    <Property Type="Int32" Name="TravelWarrantID" Nullable="false" />
+    <Property Type="DateTime" Name="DateCreated" Nullable="true" />
+    <Property Type="DateTime" Name="StartingDate" Nullable="true" />
+    <Property Type="DateTime" Name="EndingDate" Nullable="true" />
+    <Property Type="Int32" Name="IDStatus" Nullable="true" />
+    <Property Type="Int32" Name="IDDriver" Nullable="true" />
+    <Property Type="Int32" Name="IDVehicle" Nullable="true" />
+    <Property Type="String" Name="StatusType" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Surname" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="VehicleType" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="VehicleBrand" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="VehicleType1" Nullable="true" MaxLength="20" />
+  </ComplexType>
+</Schema>
