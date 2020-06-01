@@ -14,13 +14,13 @@ namespace PPPK_Project.Controllers
         {
             return View();
         }
-        //public ActionResult BackupDb()
-        //{
-        //    DBHelper.BackupDb();
-        //    return RedirectToAction("Index");
-        //}
+        public ActionResult BackupDB()
+        {
+            //DBHelper.BackupDb();
+            return RedirectToAction("Index");
+        }
         // TO DO
-        public ActionResult NukeDb()
+        public ActionResult CleanDB()
         {
             DBHelper.CleanDb();
             return RedirectToAction("Index");

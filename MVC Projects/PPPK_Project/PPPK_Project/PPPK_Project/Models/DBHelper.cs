@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -35,7 +36,7 @@ namespace PPPK_Project.Models
                     object result = c.ExecuteScalar();
                     result = (result == DBNull.Value) ? 0 : result;
                     int ret = Convert.ToInt32(result);
-                    
+
                     return ret;
                 }
             }
@@ -47,17 +48,17 @@ namespace PPPK_Project.Models
             using (SqlConnection con = new SqlConnection(CONNECTION_STRING))
             {
                 con.Open();
-                using (SqlCommand c = new SqlCommand("update Driver set " + "Name = @name, Surnmae = @surname, PhoneNumber = @phone_num, DriverLicenceNumber = @driver_licence_num" + 
+                using (SqlCommand c = new SqlCommand("update Driver set " + "Name = @name, Surnmae = @surname, PhoneNumber = @phone_num, DriverLicenceNumber = @driver_licence_num" +
                     "where DriverID=@id", con))
                 {
-                   
+
                     c.Parameters.AddWithValue("@Name", name);
                     c.Parameters.AddWithValue("@Surname", surname);
                     c.Parameters.AddWithValue("@PhoneNumber", phone_num);
                     c.Parameters.AddWithValue("@DriverLicenceNumber", driver_licence_num);
                     c.Parameters.AddWithValue("@DriverID", id);
 
-                    return (c.ExecuteNonQuery() == 0) ? true : false ;
+                    return (c.ExecuteNonQuery() == 0) ? true : false;
                 }
             }
         }
@@ -223,7 +224,7 @@ namespace PPPK_Project.Models
                     c.CommandType = CommandType.StoredProcedure;
                     c.Parameters.AddWithValue("@IDDriver", driver_id);
                     c.Parameters.AddWithValue("@IDVehicle", vehicle_id);
-                    c.Parameters.AddWithValue("IDStatus", 1);  
+                    c.Parameters.AddWithValue("IDStatus", 1);
                     c.Parameters.AddWithValue("@StartingDate", starting_date);
                     c.Parameters.AddWithValue("@EndingDate", ending_date);
                     object result = c.ExecuteScalar();
@@ -266,7 +267,7 @@ namespace PPPK_Project.Models
                 {
                     c.CommandType = CommandType.StoredProcedure;
                     c.Parameters.AddWithValue("@TravelWarrantID", id);
-                    
+
                     return (c.ExecuteNonQuery() == 0) ? false : true;
                 }
             }
@@ -335,5 +336,292 @@ namespace PPPK_Project.Models
             }
             DisableIDInsert();
         }
+
+        //-----------------------------------------------------------------------------
+        public static Driver getDriver(int id)
+        {
+            using (SqlConnection c = new SqlConnection(CONNECTION_STRING))
+            {
+                c.Open();
+                using (SqlDataAdapter a = new SqlDataAdapter("select * from Driver where DriverID=@id", c))
+                {
+                    a.SelectCommand.Parameters.Add(new SqlParameter
+                    {
+                        ParameterName = "@id",
+                        Value = id,
+                        SqlDbType = SqlDbType.Int
+                    });
+                    DataTable t = new DataTable();
+                    a.Fill(t);
+                    if (t.Rows.Count > 0)
+                    {
+                        Driver d = new Driver
+                        {
+                            DriverID = Convert.ToInt16(t.Rows[0]["DriverID"]),
+                            Name = Convert.ToString(t.Rows[0]["Name"]),
+                            Surname = Convert.ToString(t.Rows[0]["Surname"]),
+                            PhoneNumber = Convert.ToString(t.Rows[0]["PhoneNumber"]),
+                            DriverLicenceNumber = Convert.ToString(t.Rows[0]["DriverLicenceNumber"])
+                        };
+                        return d;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+        }
+        public static List<Driver> getAllDrivers()
+        {
+            List<Driver> drivers = new List<Driver>();
+            using (SqlConnection c = new SqlConnection(CONNECTION_STRING))
+            {
+                c.Open();
+                using (SqlDataAdapter a = new SqlDataAdapter("select * from Driver", c))
+                {
+
+                    DataTable t = new DataTable();
+                    a.Fill(t);
+                    if (t.Rows.Count > 0)
+                    {
+                        foreach (DataRow dataRow in t.Rows)
+                        {
+                            Driver d = new Driver
+                            {
+                                DriverID = Convert.ToInt16(t.Rows[0]["DriverID"]),
+                                Name = Convert.ToString(t.Rows[0]["Name"]),
+                                Surname = Convert.ToString(t.Rows[0]["Surname"]),
+                                PhoneNumber = Convert.ToString(t.Rows[0]["PhoneNumber"]),
+                                DriverLicenceNumber = Convert.ToString(t.Rows[0]["DriverLicenceNumber"])
+                            };
+                            drivers.Add(d);
+                        }
+                        return drivers;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+        }
+
+        //------------------------------------------------------------------------------------------
+        public static Vehicle getVehicle(int id)
+        {
+
+            using (SqlConnection c = new SqlConnection(CONNECTION_STRING))
+            {
+                c.Open();
+                using (SqlDataAdapter a = new SqlDataAdapter("select * from Vehicle where VehicleID=@id", c))
+                {
+                    a.SelectCommand.Parameters.Add(new SqlParameter
+                    {
+                        ParameterName = "@id",
+                        Value = id,
+                        SqlDbType = SqlDbType.Int
+                    });
+                    DataTable t = new DataTable();
+                    a.Fill(t);
+                    if (t.Rows.Count > 0)
+                    {
+                        Vehicle v = new Vehicle
+                        {
+                            VehicleID = Convert.ToInt16(t.Rows[0]["VehicleID"]),
+                            VehicleType = Convert.ToString(t.Rows[0]["VehicleType"]),
+                            VehicleBrand = Convert.ToString(t.Rows[0]["VehicleBrand"]),
+                            StartingKilometers = Convert.ToInt32(t.Rows[0]["StartingKilometers"]),
+                            CurrentKilometers = Convert.ToInt32(t.Rows[0]["CurrentKilometers"]),
+                            ProductionYear = Convert.ToDateTime(t.Rows[0]["ProductionYear"])
+                        };
+                        return v;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+        }
+
+        public static List<Vehicle> getAllVehicles()
+        {
+            List<Vehicle> vehicles = new List<Vehicle>();
+            using (SqlConnection c = new SqlConnection(CONNECTION_STRING))
+            {
+                c.Open();
+                using (SqlDataAdapter a = new SqlDataAdapter("select * from Vehicle", c))
+                {
+                    DataTable t = new DataTable();
+                    a.Fill(t);
+                    if (t.Rows.Count > 0)
+                    {
+                        foreach (DataRow dr in t.Rows)
+                        {
+                            Vehicle v = new Vehicle
+                            {
+                                VehicleID = Convert.ToInt16(t.Rows[0]["VehicleID"]),
+                                VehicleType = Convert.ToString(t.Rows[0]["VehicleType"]),
+                                VehicleBrand = Convert.ToString(t.Rows[0]["VehicleBrand"]),
+                                StartingKilometers = Convert.ToInt32(t.Rows[0]["StartingKilometers"]),
+                                CurrentKilometers = Convert.ToInt32(t.Rows[0]["CurrentKilometers"]),
+                                ProductionYear = Convert.ToDateTime(t.Rows[0]["ProductionYear"])
+                            };
+                            vehicles.Add(v);
+                        }
+                        return vehicles;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+        }
+        //-------------------------------------------------------------------------------------------------------
+        public static List<Service> getServices(int id)
+        {
+            
+            List<Service> services = new List<Service>();
+            using (SqlConnection c = new SqlConnection(CONNECTION_STRING))
+            {
+                c.Open();
+                using (SqlDataAdapter a = new SqlDataAdapter("select * from Service where IDVehicle=@id", c))
+                {
+                    a.SelectCommand.Parameters.Add(new SqlParameter
+                    {
+                        ParameterName = "@id",
+                        Value = id,
+                        SqlDbType = SqlDbType.Int
+                    });
+                    DataTable t = new DataTable();
+                    a.Fill(t);
+                    if (t.Rows.Count > 0)
+                    {
+                        foreach (DataRow row in t.Rows)
+                        {
+                            services.Add(new Service
+                            {
+                                ServiceID = Convert.ToInt16(row["ServiceID"]),
+                                PlaceOfService = Convert.ToString(row["PlaceOfService"]),
+                                NameOfService = Convert.ToString(row["NameOfService"]),
+                                CostOfService = Convert.ToInt32(row["CostOfService"]),
+                                ServiceInfo = Convert.ToString(row["ServiceInfo"]),
+                                IDVehicle = Convert.ToInt16(row["IDVehicle"])
+                            });
+                        }
+                        return services;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+        }
+
+        //---------------------------------------------------------------------------------------------
+        public static TravelWarrantCS getTravelWarrant(int id)
+        {
+            using (SqlConnection c = new SqlConnection(CONNECTION_STRING))
+            {
+                c.Open();
+                using (SqlDataAdapter a = new SqlDataAdapter("exec [dbo].[select_travelwarrant] @id", c))
+                {
+                    a.SelectCommand.Parameters.Add(new SqlParameter
+                    {
+                        ParameterName = "@id",
+                        Value = id,
+                        SqlDbType = SqlDbType.Int
+                    });
+                    DataTable t = new DataTable();
+                    a.Fill(t);
+                    if (t.Rows.Count > 0)
+                    {
+                        TravelWarrantCS twcs = new TravelWarrantCS
+                        {
+                            travelWarrant = new TravelWarrant
+                            {
+                                TravelWarrantID = Convert.ToInt16(t.Rows[0]["TravelWarrnatID"]),
+                                DateCreated = Convert.ToDateTime(t.Rows[0]["DateCreated"]),
+                                StartingDate = Convert.ToDateTime(t.Rows[0]["StartingDate"]),
+                                EndingDate = Convert.ToDateTime(t.Rows[0]["EndingDate"]),
+                                IDVehicle = Convert.ToInt16(t.Rows[0]["IDVehicle"]),
+                                IDDriver = Convert.ToInt16(t.Rows[0]["IDDriver"]),
+                                IDStatus = Convert.ToInt16(t.Rows[0]["IDStatus"])
+                            },
+                            vehicle = new Vehicle
+                            {
+                                VehicleBrand = Convert.ToString(t.Rows[0]["VehicleBrand"]),
+                                ProductionYear = Convert.ToDateTime(t.Rows[0]["ProductionYear"])
+                            },
+                            driver = new Driver
+                            {
+                                Name = Convert.ToString(t.Rows[0]["Name"]),
+                                Surname = Convert.ToString(t.Rows[0]["Surname"])
+                            },
+                            statusType = Convert.ToString(t.Rows[0]["StatusType"])
+                        };
+                        return twcs;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+        }
+
+        public static List<TravelWarrantCS> getAllPutniNalozi()
+        {
+            using (SqlConnection c = new SqlConnection(CONNECTION_STRING))
+            {
+                c.Open();
+                using (SqlDataAdapter a = new SqlDataAdapter("exec [dbo].[select_all_travelwarrants]", c))
+                {
+                    DataTable t = new DataTable();
+                    a.Fill(t);
+                    List<TravelWarrantCS> travelWarrants = new List<TravelWarrantCS>();
+                    if (t.Rows.Count > 0)
+                    {
+                        foreach (DataRow dr in t.Rows)
+                        {
+                            TravelWarrantCS tw = new TravelWarrantCS
+                            {
+                                travelWarrant = new TravelWarrant
+                                {
+                                    TravelWarrantID = Convert.ToInt16(t.Rows[0]["TravelWarrnatID"]),
+                                    DateCreated = Convert.ToDateTime(t.Rows[0]["DateCreated"]),
+                                    StartingDate = Convert.ToDateTime(t.Rows[0]["StartingDate"]),
+                                    EndingDate = Convert.ToDateTime(t.Rows[0]["EndingDate"]),
+                                    IDVehicle = Convert.ToInt16(t.Rows[0]["IDVehicle"]),
+                                    IDDriver = Convert.ToInt16(t.Rows[0]["IDDriver"]),
+                                    IDStatus = Convert.ToInt16(t.Rows[0]["IDStatus"])
+                                },
+                                vehicle = new Vehicle
+                                {
+                                    VehicleBrand = Convert.ToString(t.Rows[0]["VehicleBrand"]),
+                                    ProductionYear = Convert.ToDateTime(t.Rows[0]["ProductionYear"])
+                                },
+                                driver = new Driver
+                                {
+                                    Name = Convert.ToString(t.Rows[0]["Name"]),
+                                    Surname = Convert.ToString(t.Rows[0]["Surname"])
+                                },
+                                statusType = Convert.ToString(t.Rows[0]["StatusType"])
+                            };
+                            travelWarrants.Add(tw);
+                        }
+                        return travelWarrants;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+        }
+
     }
 }
