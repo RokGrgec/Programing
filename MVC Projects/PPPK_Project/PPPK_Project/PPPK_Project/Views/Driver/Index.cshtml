@@ -1,7 +1,7 @@
 ﻿@model PPPK_Project.Models.Driver
 
 @{
-    ViewBag.Title = "InsertDriver";
+    ViewBag.Title = "Index";
 }
 
 <h2>InsertDriver</h2>
@@ -54,10 +54,7 @@
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+<div onclick="window.location.href= '@Url.Action("Index","Home")'" class="btn btn-primary">Back to home</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

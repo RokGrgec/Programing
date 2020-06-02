@@ -10,9 +10,22 @@ namespace PPPK_Project.Controllers
     public class DriverController : Controller
     {
         // GET: Driver
-        public ActionResult Index()
+        public ActionResult AllDrivers()
         {
-            return View();
+            return View((object)DBHelper.getAllDrivers());
+        }
+
+        public ActionResult Driver(int? id)
+        {
+            try
+            {
+                return View((object)DBHelper.getDriver((int)id));
+            }
+            catch (Exception)
+            {
+
+                return View((object)null);
+            } 
         }
 
         [HttpGet]

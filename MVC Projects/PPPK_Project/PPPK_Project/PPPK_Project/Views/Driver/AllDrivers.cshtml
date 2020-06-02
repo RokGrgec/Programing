@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PPPK_Project.Models.Driver>
+
+@{
+    ViewBag.Title = "AllDrivers";
+}
+
+<h2>AllDrivers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DriverLicenceNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (PPPK_Project.Models.Driver d in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => d.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => d.Surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => d.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => d.DriverLicenceNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=d.DriverID }) |
+            @Html.ActionLink("Details", "Details", new { id=d.DriverID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=d.DriverID })
+        </td>
+    </tr>
+}
+
+</table>

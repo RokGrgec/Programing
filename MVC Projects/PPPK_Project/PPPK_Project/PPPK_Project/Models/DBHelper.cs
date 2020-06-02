@@ -13,7 +13,7 @@ namespace PPPK_Project.Models
 {
     public static class DBHelper
     {
-        public static string CONNECTION_STRING = System.Configuration.ConfigurationManager.ConnectionStrings["pppkDBEntities"].ConnectionString;
+        public static string CONNECTION_STRING = System.Configuration.ConfigurationManager.ConnectionStrings["PPPK_DB"].ConnectionString;
         public static List<string> TABLE_NAMES = new List<string> { "CostOfGasRefil", "Driver", "OccupyedVehicle", "OccupyingDriver", "Service", "Status", "TravelRoute", "TravelWarrant", "Vehicle" };
 
         //insert_driver, insert_vehicle, insert_service, insert_costofgasrefill, insert_travelwarrant, insert_trevelroute, delete_service, delete_vehicle, delete_travelwarrant
@@ -385,17 +385,22 @@ namespace PPPK_Project.Models
                     a.Fill(t);
                     if (t.Rows.Count > 0)
                     {
+                        int i = 0;
                         foreach (DataRow dataRow in t.Rows)
                         {
                             Driver d = new Driver
                             {
-                                DriverID = Convert.ToInt16(t.Rows[0]["DriverID"]),
-                                Name = Convert.ToString(t.Rows[0]["Name"]),
-                                Surname = Convert.ToString(t.Rows[0]["Surname"]),
-                                PhoneNumber = Convert.ToString(t.Rows[0]["PhoneNumber"]),
-                                DriverLicenceNumber = Convert.ToString(t.Rows[0]["DriverLicenceNumber"])
+                                DriverID = Convert.ToInt16(t.Rows[i]["DriverID"]),
+                                Name = Convert.ToString(t.Rows[i]["Name"]),
+                                Surname = Convert.ToString(t.Rows[i]["Surname"]),
+                                PhoneNumber = Convert.ToString(t.Rows[i]["PhoneNumber"]),
+                                DriverLicenceNumber = Convert.ToString(t.Rows[i]["DriverLicenceNumber"])
                             };
                             drivers.Add(d);
+                            if (i < t.Rows.Count)
+                            {
+                                i++;
+                            }
                         }
                         return drivers;
                     }
@@ -573,7 +578,7 @@ namespace PPPK_Project.Models
             }
         }
 
-        public static List<TravelWarrantCS> getAllPutniNalozi()
+        public static List<TravelWarrantCS> getAllTravelWarrants()
         {
             using (SqlConnection c = new SqlConnection(CONNECTION_STRING))
             {
