@@ -154,3 +154,7 @@ D:\LearningCSharp\MVC Projects\PPPK_Project\PPPK_Project\PPPK_Project\bin\Entity
 D:\LearningCSharp\MVC Projects\PPPK_Project\PPPK_Project\PPPK_Project\bin\EntityFramework.SqlServer.dll
 D:\LearningCSharp\MVC Projects\PPPK_Project\PPPK_Project\PPPK_Project\bin\EntityFramework.xml
 D:\LearningCSharp\MVC Projects\PPPK_Project\PPPK_Project\PPPK_Project\bin\EntityFramework.SqlServer.xml
+D:\LearningCSharp\MVC Projects\PPPK_Project\PPPK_Project\PPPK_Project\bin\System.Net.Http.Formatting.dll
+D:\LearningCSharp\MVC Projects\PPPK_Project\PPPK_Project\PPPK_Project\bin\System.Web.Http.dll
+D:\LearningCSharp\MVC Projects\PPPK_Project\PPPK_Project\PPPK_Project\bin\System.Net.Http.Formatting.xml
+D:\LearningCSharp\MVC Projects\PPPK_Project\PPPK_Project\PPPK_Project\bin\System.Web.Http.xml

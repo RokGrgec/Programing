@@ -1,0 +1,51 @@
+﻿@model PPPK_Project.Models.Driver
+
+@{
+    ViewBag.Title = "Driver";
+}
+
+<h2>EditDriver</h2>
+
+<div class="center">
+    <h2>Driver ID: @Model.DriverID  </h2>
+    <form action="/api/v1/PPPK_Project.Models.Driver/@Model.DriverID" method="get" name="f">
+        <ul>
+            <li>Name: <input class="inp" readonly value="@Model.Name" name="Name"></li>
+            <li>Surname: <input class="inp" readonly value="@Model.Surname" name="Surname"></li>
+            <li>Phone number: <input class="inp" readonly value="@Model.PhoneNumber" name="PhoneNumber"></li>
+            <li>Driver licence number: <input class="inp" readonly value="@Model.DriverLicenceNumber" name="DriverLicenceNumber"></li>
+        </ul>
+        <input hidden="hidden" id="check" readonly />
+        <div id="bt" onclick="edit()" class="btn btn-primary">Edit</div>
+        <div id="bt_send" onclick="document.forms['f'].submit();" class="btn btn-success" hidden>Save</div>
+    </form>
+</div>
+
+
+<div>
+    @Html.ActionLink("Back to List", "AllDrivers")
+</div>
+
+<script>
+    function edit() {
+        if (document.getElementById('check').readOnly) {
+            document.getElementById('check').readOnly = false;
+            document.getElementById('bt_send').hidden = false;
+            Array.from(document.getElementsByClassName('inp'))
+                .forEach(function (e) {
+                    e.readOnly = false
+                    e.style.border = "1px dotted green"
+                }
+                );
+        } else {
+            document.getElementById('check').readOnly = true;
+            document.getElementById('bt_send').hidden = true;
+            Array.from(document.getElementsByClassName('inp'))
+                .forEach(function (e) {
+                    e.readOnly = true
+                    e.style.border = "1px solid red"
+                }
+                );
+        }
+    };
+</script>

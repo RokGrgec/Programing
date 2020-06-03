@@ -6,9 +6,6 @@
 
 <h2>AllDrivers</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -41,11 +38,14 @@
             @Html.DisplayFor(modelItem => d.DriverLicenceNumber)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=d.DriverID }) |
-            @Html.ActionLink("Details", "Details", new { id=d.DriverID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=d.DriverID })
+            <div onclick="window.location.href= '@Url.Action("Driver", "Driver", new { id = d.DriverID})'" class="btn btn-success">Edit</div>
+            <form name="f" method="post" action="/api/v1/PPPK_Project.Models.Driver/@d.DriverID">
+            <button type="submit" class="btn btn-danger">Delete</button>
         </td>
     </tr>
 }
 
 </table>
+<p>
+    <div onclick="window.location.href= '@Url.Action("InsertDriver", "Driver")'" class="btn btn-primary">Insert new</div>
+</p>

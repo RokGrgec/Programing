@@ -28,6 +28,23 @@ namespace PPPK_Project.Controllers
             } 
         }
 
+
+       
+        public ActionResult DeleteDriver(int id)
+        {
+            try
+            {
+                DBHelper.deleteDriver((int)id);
+                return View();
+            }
+            catch (Exception)
+            {
+                return View();
+            }
+        }
+
+
+
         [HttpGet]
         public ActionResult InsertDriver()
         {
@@ -41,7 +58,7 @@ namespace PPPK_Project.Controllers
             if (ModelState.IsValid)
             {
                 DBHelper.insertDriver(d.Name, d.Surname, d.PhoneNumber, d.DriverLicenceNumber);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
             return View();
 

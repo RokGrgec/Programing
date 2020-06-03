@@ -29,10 +29,10 @@ namespace PPPK_Project.Models
                 using (SqlCommand c = new SqlCommand("insert_driver", con))
                 {
                     c.CommandType = CommandType.StoredProcedure;
-                    c.Parameters.AddWithValue("@Name", name);
-                    c.Parameters.AddWithValue("@Surname", surname);
-                    c.Parameters.AddWithValue("@PhoneNumber", phone_num);
-                    c.Parameters.AddWithValue("@DriverLicenceNumber", driver_licence_num);
+                    c.Parameters.AddWithValue("@fname", name);
+                    c.Parameters.AddWithValue("@lastname", surname);
+                    c.Parameters.AddWithValue("@phonenum", phone_num);
+                    c.Parameters.AddWithValue("@driverlicensenum", driver_licence_num);
                     object result = c.ExecuteScalar();
                     result = (result == DBNull.Value) ? 0 : result;
                     int ret = Convert.ToInt32(result);
@@ -48,14 +48,14 @@ namespace PPPK_Project.Models
             using (SqlConnection con = new SqlConnection(CONNECTION_STRING))
             {
                 con.Open();
-                using (SqlCommand c = new SqlCommand("update Driver set " + "Name = @name, Surnmae = @surname, PhoneNumber = @phone_num, DriverLicenceNumber = @driver_licence_num" +
-                    "where DriverID=@id", con))
+                using (SqlCommand c = new SqlCommand("update Driver set " + "Name = @name, Surname = @surname, PhoneNumber = @phone_num, DriverLicenceNumber = @driver_licence_num " +
+                    "where DriverID = @id", con))
                 {
 
-                    c.Parameters.AddWithValue("@Name", name);
-                    c.Parameters.AddWithValue("@Surname", surname);
-                    c.Parameters.AddWithValue("@PhoneNumber", phone_num);
-                    c.Parameters.AddWithValue("@DriverLicenceNumber", driver_licence_num);
+                    c.Parameters.AddWithValue("@name", name);
+                    c.Parameters.AddWithValue("@surname", surname);
+                    c.Parameters.AddWithValue("@phone_num", phone_num);
+                    c.Parameters.AddWithValue("@driver_licence_num", driver_licence_num);
                     c.Parameters.AddWithValue("@DriverID", id);
 
                     return (c.ExecuteNonQuery() == 0) ? true : false;
