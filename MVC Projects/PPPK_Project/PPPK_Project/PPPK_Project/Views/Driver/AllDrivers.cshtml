@@ -24,28 +24,31 @@
     </tr>
 
 @foreach (PPPK_Project.Models.Driver d in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => d.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => d.Surname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => d.PhoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => d.DriverLicenceNumber)
-        </td>
-        <td>
-            <div onclick="window.location.href= '@Url.Action("Driver", "Driver", new { id = d.DriverID})'" class="btn btn-success">Edit</div>
-            <form name="f" method="post" action="/api/v1/PPPK_Project.Models.Driver/@d.DriverID">
-            <button type="submit" class="btn btn-danger">Delete</button>
-        </td>
-    </tr>
+    using (Html.BeginForm("Delete", "Driver", new { id = d.DriverID }))
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => d.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => d.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => d.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => d.DriverLicenceNumber)
+            </td>
+            <td>
+                <div onclick="window.location.href= '@Url.Action("Driver", "Driver", new { id = d.DriverID })'" class="btn btn-success">Edit</div>
+                <input type="submit" value="Delete" />
+            </td>
+        </tr>
+    }
 }
 
 </table>
 <p>
     <div onclick="window.location.href= '@Url.Action("InsertDriver", "Driver")'" class="btn btn-primary">Insert new</div>
+    <div onclick="window.location.href= '@Url.Action("Index","Home")'" class="btn btn-primary">Back to home</div>
 </p>

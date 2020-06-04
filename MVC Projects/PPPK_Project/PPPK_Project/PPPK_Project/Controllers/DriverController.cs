@@ -30,17 +30,11 @@ namespace PPPK_Project.Controllers
 
 
        
-        public ActionResult DeleteDriver(int id)
+        [HttpPost]
+        public ActionResult Delete(int id)
         {
-            try
-            {
-                DBHelper.deleteDriver((int)id);
-                return View();
-            }
-            catch (Exception)
-            {
-                return View();
-            }
+            DBHelper.deleteDriver((int)id);
+            return RedirectToAction("AllDrivers");   
         }
 
 

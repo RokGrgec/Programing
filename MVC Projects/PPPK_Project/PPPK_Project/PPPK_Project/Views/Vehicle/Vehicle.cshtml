@@ -1,19 +1,21 @@
-﻿@model PPPK_Project.Models.Driver
+﻿@model PPPK_Project.Models.Vehicle
 
 @{
-    ViewBag.Title = "Driver";
+    ViewBag.Title = "Vehicle";
 }
 
-<h2>EditDriver</h2>
+<h2>Vehicle</h2>
+
 
 <div class="center">
-    <h2>Driver ID: @Model.DriverID  </h2>
-    <form action="/api/v1/PPPK_Project.Models.Driver/@Model.DriverID" method="get" name="f">
+    <h2>Vehicle ID: @Model.VehicleID  </h2>
+    <form action="/api/v1/PPPK_Project.Models.Driver/@Model.VehicleID" method="get" name="f">
         <ul>
-            <li>Name: <input class="inp" readonly value="@Model.Name" name="Name"></li>
-            <li>Surname: <input class="inp" readonly value="@Model.Surname" name="Surname"></li>
-            <li>Phone number: <input class="inp" readonly value="@Model.PhoneNumber" name="PhoneNumber"></li>
-            <li>Driver licence number: <input class="inp" readonly value="@Model.DriverLicenceNumber" name="DriverLicenceNumber"></li>
+            <li>Type: <input class="inp" readonly value="@Model.VehicleType" name="VehicleType"></li>
+            <li>Brand: <input class="inp" readonly value="@Model.VehicleBrand" name="VehicleBrand"></li>
+            <li>Production year: <input class="inp" readonly value="@Model.ProductionYear" name="ProductionYear"></li>
+            <li>Starting kilometers: <input class="inp" readonly value="@Model.StartingKilometers" name="StartingKilometers"></li>
+            <li>Current kilometers: <input class="inp" readonly value="@Model.CurrentKilometers" name="CurrentKilometers"></li>
         </ul>
         <input hidden="hidden" id="check" readonly />
         <div id="bt" onclick="edit()" class="btn btn-primary">Edit</div>
@@ -24,7 +26,7 @@
 
 
 <div>
-    @Html.ActionLink("Back to List", "AllDrivers")
+    @Html.ActionLink("Back to List", "AllVehicles")
 </div>
 
 <script>

@@ -71,7 +71,7 @@ namespace PPPK_Project.Models
                 using (SqlCommand c = new SqlCommand("delete_driver", con))
                 {
                     c.CommandType = CommandType.StoredProcedure;
-                    c.Parameters.AddWithValue("@DriverID", id);
+                    c.Parameters.AddWithValue("@id", id);
 
                     return (c.ExecuteNonQuery() == 0) ? false : true;
                 }
@@ -162,11 +162,11 @@ namespace PPPK_Project.Models
                 using (SqlCommand c = new SqlCommand("insert_vehicle", con))
                 {
                     c.CommandType = CommandType.StoredProcedure;
-                    c.Parameters.AddWithValue("@VehicleType", vehicle_type);
-                    c.Parameters.AddWithValue("@VehicleBrand", vehicle_brand);
-                    c.Parameters.AddWithValue("@ProductionYear", production_year);
-                    c.Parameters.AddWithValue("@StartingKilometers", starting_kilometers);
-                    c.Parameters.AddWithValue("@CurrentKilometers", current_kilometers);
+                    c.Parameters.AddWithValue("@type", vehicle_type);
+                    c.Parameters.AddWithValue("@model", vehicle_brand);
+                    c.Parameters.AddWithValue("@prodyear", production_year);
+                    c.Parameters.AddWithValue("@startingkilometers", starting_kilometers);
+                    c.Parameters.AddWithValue("@currentkilometers", current_kilometers);
                     object result = c.ExecuteScalar();
                     result = (result == DBNull.Value) ? 0 : result;
                     int ret = Convert.ToInt32(result);
@@ -462,20 +462,26 @@ namespace PPPK_Project.Models
                     a.Fill(t);
                     if (t.Rows.Count > 0)
                     {
+                        int i = 0;
                         foreach (DataRow dr in t.Rows)
                         {
                             Vehicle v = new Vehicle
                             {
-                                VehicleID = Convert.ToInt16(t.Rows[0]["VehicleID"]),
-                                VehicleType = Convert.ToString(t.Rows[0]["VehicleType"]),
-                                VehicleBrand = Convert.ToString(t.Rows[0]["VehicleBrand"]),
-                                StartingKilometers = Convert.ToInt32(t.Rows[0]["StartingKilometers"]),
-                                CurrentKilometers = Convert.ToInt32(t.Rows[0]["CurrentKilometers"]),
-                                ProductionYear = Convert.ToDateTime(t.Rows[0]["ProductionYear"])
+                                VehicleID = Convert.ToInt16(t.Rows[i]["VehicleID"]),
+                                VehicleType = Convert.ToString(t.Rows[i]["VehicleType"]),
+                                VehicleBrand = Convert.ToString(t.Rows[i]["VehicleBrand"]),
+                                StartingKilometers = Convert.ToInt32(t.Rows[i]["StartingKilometers"]),
+                                CurrentKilometers = Convert.ToInt32(t.Rows[i]["CurrentKilometers"]),
+                                ProductionYear = Convert.ToDateTime(t.Rows[i]["ProductionYear"])
                             };
                             vehicles.Add(v);
+                            if (i < t.Rows.Count)
+                            {
+                                i++;
+                            }
                         }
                         return vehicles;
+
                     }
                     else
                     {
@@ -548,7 +554,6 @@ namespace PPPK_Project.Models
                         {
                             travelWarrant = new TravelWarrant
                             {
-                                TravelWarrantID = Convert.ToInt16(t.Rows[0]["TravelWarrnatID"]),
                                 DateCreated = Convert.ToDateTime(t.Rows[0]["DateCreated"]),
                                 StartingDate = Convert.ToDateTime(t.Rows[0]["StartingDate"]),
                                 EndingDate = Convert.ToDateTime(t.Rows[0]["EndingDate"]),
@@ -566,7 +571,10 @@ namespace PPPK_Project.Models
                                 Name = Convert.ToString(t.Rows[0]["Name"]),
                                 Surname = Convert.ToString(t.Rows[0]["Surname"])
                             },
-                            statusType = Convert.ToString(t.Rows[0]["StatusType"])
+                            status = new Status
+                            {
+                                StatusType = Convert.ToString(t.Rows[0]["StatusType"])
+                            }
                         };
                         return twcs;
                     }
@@ -590,33 +598,40 @@ namespace PPPK_Project.Models
                     List<TravelWarrantCS> travelWarrants = new List<TravelWarrantCS>();
                     if (t.Rows.Count > 0)
                     {
+                        int i = 0;
                         foreach (DataRow dr in t.Rows)
                         {
                             TravelWarrantCS tw = new TravelWarrantCS
                             {
                                 travelWarrant = new TravelWarrant
                                 {
-                                    TravelWarrantID = Convert.ToInt16(t.Rows[0]["TravelWarrnatID"]),
-                                    DateCreated = Convert.ToDateTime(t.Rows[0]["DateCreated"]),
-                                    StartingDate = Convert.ToDateTime(t.Rows[0]["StartingDate"]),
-                                    EndingDate = Convert.ToDateTime(t.Rows[0]["EndingDate"]),
-                                    IDVehicle = Convert.ToInt16(t.Rows[0]["IDVehicle"]),
-                                    IDDriver = Convert.ToInt16(t.Rows[0]["IDDriver"]),
-                                    IDStatus = Convert.ToInt16(t.Rows[0]["IDStatus"])
+                                    DateCreated = Convert.ToDateTime(t.Rows[i]["DateCreated"]),
+                                    StartingDate = Convert.ToDateTime(t.Rows[i]["StartingDate"]),
+                                    EndingDate = Convert.ToDateTime(t.Rows[i]["EndingDate"]),
+                                    IDVehicle = Convert.ToInt16(t.Rows[i]["IDVehicle"]),
+                                    IDDriver = Convert.ToInt16(t.Rows[i]["IDDriver"]),
+                                    IDStatus = Convert.ToInt16(t.Rows[i]["IDStatus"])
                                 },
                                 vehicle = new Vehicle
                                 {
-                                    VehicleBrand = Convert.ToString(t.Rows[0]["VehicleBrand"]),
-                                    ProductionYear = Convert.ToDateTime(t.Rows[0]["ProductionYear"])
+                                    VehicleBrand = Convert.ToString(t.Rows[i]["VehicleBrand"]),
+                                    ProductionYear = Convert.ToDateTime(t.Rows[i]["ProductionYear"])
                                 },
                                 driver = new Driver
                                 {
-                                    Name = Convert.ToString(t.Rows[0]["Name"]),
-                                    Surname = Convert.ToString(t.Rows[0]["Surname"])
+                                    Name = Convert.ToString(t.Rows[i]["Name"]),
+                                    Surname = Convert.ToString(t.Rows[i]["Surname"])
                                 },
-                                statusType = Convert.ToString(t.Rows[0]["StatusType"])
+                                status = new Status
+                                {
+                                    StatusType = Convert.ToString(t.Rows[i]["StatusType"])
+                                }
                             };
                             travelWarrants.Add(tw);
+                            if (i < t.Rows.Count)
+                            {
+                                i++;
+                            }
                         }
                         return travelWarrants;
                     }

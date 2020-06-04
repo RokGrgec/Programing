@@ -1,0 +1,61 @@
+﻿@model IEnumerable<PPPK_Project.Models.Vehicle>
+
+@{
+    ViewBag.Title = "AllVehicles";
+}
+
+<h2>AllVehicles</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleBrand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductionYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartingKilometers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentKilometers)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (PPPK_Project.Models.Vehicle v in Model)
+    {
+        using (Html.BeginForm("Delete", "Driver", new { id = v.VehicleID }))
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => v.VehicleType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => v.VehicleBrand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => v.ProductionYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => v.StartingKilometers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => v.CurrentKilometers)
+            </td>
+            <td>
+                <div onclick="window.location.href= '@Url.Action("Vehicle", "Vehicle", new { id = v.VehicleID })'" class="btn btn-success">Edit</div>
+                <input type="submit" value="Delete" />
+            </td>
+        </tr>
+        }
+    }
+
+</table>
+<p>
+    <div onclick="window.location.href= '@Url.Action("InsertVehicle", "Vehicle")'" class="btn btn-primary">Insert new</div>
+    <div onclick="window.location.href= '@Url.Action("Index","Home")'" class="btn btn-primary">Back to home</div>
+</p>

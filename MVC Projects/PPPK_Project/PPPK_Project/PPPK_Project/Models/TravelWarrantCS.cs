@@ -14,7 +14,7 @@ namespace PPPK_Project.Models
 
         public Vehicle vehicle { get; set; }
 
-        public string statusType { get; set; }
+        public Status status { get; set; }
 
     }
 }

@@ -137,6 +137,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DriverController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TravelWarrantController.cs" />
+    <Compile Include="Controllers\VehicleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -246,6 +248,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Driver\AllDrivers.cshtml" />
     <Content Include="Views\Driver\Driver.cshtml" />
+    <Content Include="Views\Vehicle\InsertVehicle.cshtml" />
+    <Content Include="Views\Vehicle\AllVehicles.cshtml" />
+    <Content Include="Views\Vehicle\Vehicle.cshtml" />
+    <Content Include="Views\TravelWarrant\AllTravelWarrants.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

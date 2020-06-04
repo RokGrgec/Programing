@@ -1,4 +1,4 @@
-﻿use [master]
+﻿use use [master]
 go
 
 create database pppkDB
@@ -272,7 +272,7 @@ as
 go
 create proc select_all_travelwarrants
 as
-    select tw.*,s.StatusType,d.[Name],d.Surname,v.VehicleType,v.VehicleBrand,v.VehicleType from TravelWarrant as tw
+    select tw.*,s.StatusType,d.[Name],d.Surname,v.VehicleType,v.VehicleBrand,v.ProductionYear from TravelWarrant as tw
 		left join Driver as d on tw.IDDriver = d.DriverID
 		left join Vehicle as v on tw.IDVehicle = v.VehicleID
 		left join [Status] as s on tw.IDStatus = s.StatusID
