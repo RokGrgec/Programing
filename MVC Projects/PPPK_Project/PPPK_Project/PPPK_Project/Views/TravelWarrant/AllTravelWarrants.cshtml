@@ -4,7 +4,7 @@
     ViewBag.Title = "AllTravelWarrants";
 }
 
-<h2>AllTravelWarrants</h2>
+<h2>Travel Warrants</h2>
 
 
 <div class="center">
@@ -42,16 +42,16 @@
                             </div>
                         </div>
                         <div class="col-2 text-center align-self-center">
-                            <div onclick="window.location.href= '@Url.Action("TravelWarrant", "TravelWarrant", new { id = tv.travelWarrant.TravelWarrantID })'" class="btn btn-success">Uredi</div>
+                            <div onclick="window.location.href= '@Url.Action("TravelWarrant", "TravelWarrant", new { id = tv.travelWarrant.TravelWarrantID })'" class="btn btn-success">Edit</div>
                             <form name="f" method="post" action="/api/v1/vozac/@tv.travelWarrant.TravelWarrantID">
-                                <button type="submit" class="btn btn-danger">Obrisi</button>
+                                <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </li>
         }
-        <div onclick="window.location.href= '@Url.Action("DodajVozaca", "Vozaci")'" class="btn btn-primary">Dodaj novog vozaca</div>
+        <div onclick="window.location.href= '@Url.Action("InsertTravelWarrant", "TravelWarrant")'" class="btn btn-primary">Add Travel Warrant</div>
     </ul>
 </div>
 

@@ -149,6 +149,7 @@
     <Compile Include="Models\Driver.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DropdownHelper.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -252,6 +253,8 @@
     <Content Include="Views\Vehicle\AllVehicles.cshtml" />
     <Content Include="Views\Vehicle\Vehicle.cshtml" />
     <Content Include="Views\TravelWarrant\AllTravelWarrants.cshtml" />
+    <Content Include="Views\TravelWarrant\TravelWarrant.cshtml" />
+    <Content Include="Views\TravelWarrant\InsertTravelWarrant.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

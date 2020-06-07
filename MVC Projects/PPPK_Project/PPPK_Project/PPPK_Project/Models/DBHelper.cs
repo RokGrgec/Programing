@@ -215,7 +215,7 @@ namespace PPPK_Project.Models
         //----------------------------------------------------------------------------------------------------------------
         public static int insertTravelWarrant(DateTime? starting_date, DateTime? ending_date, int driver_id, int vehicle_id)
         {
-
+            DateTime date_created = DateTime.Now;
             using (SqlConnection con = new SqlConnection(CONNECTION_STRING))
             {
                 con.Open();
@@ -225,8 +225,9 @@ namespace PPPK_Project.Models
                     c.Parameters.AddWithValue("@IDDriver", driver_id);
                     c.Parameters.AddWithValue("@IDVehicle", vehicle_id);
                     c.Parameters.AddWithValue("IDStatus", 1);
-                    c.Parameters.AddWithValue("@StartingDate", starting_date);
-                    c.Parameters.AddWithValue("@EndingDate", ending_date);
+                    c.Parameters.AddWithValue("@datecreated", date_created);
+                    c.Parameters.AddWithValue("@dateofstart", starting_date);
+                    c.Parameters.AddWithValue("@dateofending", ending_date);
                     object result = c.ExecuteScalar();
                     result = (result == DBNull.Value) ? 0 : result;
                     int ret = Convert.ToInt32(result);
@@ -411,6 +412,47 @@ namespace PPPK_Project.Models
                 }
             }
         }
+
+
+
+        public static List<Status> getAllStatuses()
+        {
+            List<Status> statuses = new List<Status>();
+            using (SqlConnection c = new SqlConnection(CONNECTION_STRING))
+            {
+                c.Open();
+                using (SqlDataAdapter a = new SqlDataAdapter("select * from [Status]", c))
+                {
+
+                    DataTable t = new DataTable();
+                    a.Fill(t);
+                    if (t.Rows.Count > 0)
+                    {
+                        int i = 0;
+                        foreach (DataRow dataRow in t.Rows)
+                        {
+                            Status s = new Status
+                            {
+                                StatusID = Convert.ToInt16(t.Rows[i]["StatusID"]),
+                                StatusType = Convert.ToString(t.Rows[i]["StatusType"])
+                            };
+                            statuses.Add(s);
+                            if (i < t.Rows.Count)
+                            {
+                                i++;
+                            }
+                        }
+                        return statuses;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+        }
+
+
 
         //------------------------------------------------------------------------------------------
         public static Vehicle getVehicle(int id)

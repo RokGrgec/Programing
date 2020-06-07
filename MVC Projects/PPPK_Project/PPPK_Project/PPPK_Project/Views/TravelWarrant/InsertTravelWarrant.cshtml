@@ -1,0 +1,67 @@
+﻿@model PPPK_Project.Models.TravelWarrant
+@{
+    ViewBag.Title = "InsertTravelWarrant";
+}
+
+<h2>InsertTravelWarrant</h2>
+
+<h2>Dodaj putni nalog</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="center">
+        <form method="post" action="@(Url.Action("InsertTravelWarrant", "TravelWarrant"))" name="f">
+            <h5>Starting date</h5>
+
+            <div class="editor-label">
+                Starting date
+            </div>
+            <div class="editor-field">
+                <input name="starting_date" type="date" min="@(DateTime.Now.ToString("yyyy-MM-dd"))" />
+            </div>
+
+            <div class="editor-label">
+                Ending date
+            </div>
+            <div class="editor-field">
+                <input name="ending_date" type="date" min="@(DateTime.Now.ToString("yyyy-MM-dd"))" />
+            </div>
+
+
+            <div class="editor-label">
+                Driver:
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("Driver")
+                @*@Html.EditorFor(model => model.Driver.DriverID)*@
+            </div>
+
+            <div class="editor-label">
+                Vehicle:
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("Vehicle")
+                @*@Html.EditorFor(model => model.Vehicle.VehicleID)*@
+            </div>
+
+            <div class="editor-label">
+                Status:
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("Status")
+                @*@Html.EditorFor(model => model.Status.StatusID)*@
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div>
+        <div onclick="window.location.href= '@Url.Action("AllTravelWarrants", "TravelWarrant")'" class="btn btn-danger">All Travel Warrants</div>
+    </div>
+}
+
