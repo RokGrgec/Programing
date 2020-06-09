@@ -28,7 +28,7 @@
 
     @foreach (PPPK_Project.Models.Vehicle v in Model)
     {
-        using (Html.BeginForm("Delete", "Driver", new { id = v.VehicleID }))
+        using (Html.BeginForm("Delete", "Vehicle", new { id = v.VehicleID }))
         {
         <tr>
             <td>

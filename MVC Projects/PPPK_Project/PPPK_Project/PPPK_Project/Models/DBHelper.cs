@@ -206,7 +206,7 @@ namespace PPPK_Project.Models
                 using (SqlCommand c = new SqlCommand("delete_vehicle", con))
                 {
                     c.CommandType = CommandType.StoredProcedure;
-                    c.Parameters.AddWithValue("@VehicleID", id);
+                    c.Parameters.AddWithValue("@id", id);
 
                     return (c.ExecuteNonQuery() == 0) ? false : true;
                 }

@@ -16,7 +16,7 @@ namespace PPPK_Project.Controllers
 
             DBHelper.updateDriver((int)id, name, surname, phonenum, licencenum);
             var response = Request.CreateResponse(HttpStatusCode.Moved);
-            string fullyQualifiedUrl = Request.RequestUri.GetLeftPart(UriPartial.Authority) + $"/Drivers/Driver/{id}";
+            string fullyQualifiedUrl = Request.RequestUri.GetLeftPart(UriPartial.Authority) + $"/Driver/Driver/{id}";
             response.Headers.Location = new Uri(fullyQualifiedUrl);
             return response;
 
