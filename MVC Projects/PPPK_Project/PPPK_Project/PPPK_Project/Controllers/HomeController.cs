@@ -31,5 +31,11 @@ namespace PPPK_Project.Controllers
             DBHelper.RestoreDb();
             return RedirectToAction("Index");
         }
+
+        public ActionResult ExportDB()
+        {
+            DBHelper.ExportDb();
+            return RedirectToAction("Index");
+        }
     }
 }

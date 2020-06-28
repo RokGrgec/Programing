@@ -1,0 +1,324 @@
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="CostOfGasRefill">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="CostOfGasRefillID" type="xs:int" minOccurs="0" />
+                <xs:element name="DateCreated" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="RefillPlaceName" type="xs:string" minOccurs="0" />
+                <xs:element name="AmountRefilledInLiters" type="xs:int" minOccurs="0" />
+                <xs:element name="CostOfRefill" type="xs:int" minOccurs="0" />
+                <xs:element name="IDTravelWarrant" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Driver">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="DriverID" type="xs:int" minOccurs="0" />
+                <xs:element name="Name" type="xs:string" minOccurs="0" />
+                <xs:element name="Surname" type="xs:string" minOccurs="0" />
+                <xs:element name="PhoneNumber" type="xs:string" minOccurs="0" />
+                <xs:element name="DriverLicenceNumber" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="OccupyedVehicle">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="OccupyedVehicleID" type="xs:int" minOccurs="0" />
+                <xs:element name="DateOccupyingStarted" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="IDVehicle" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="OccupyingDriver">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="OccupyingDriverID" type="xs:int" minOccurs="0" />
+                <xs:element name="DateOccupyingStarted" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="IDDriver" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Service">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ServiceID" type="xs:int" minOccurs="0" />
+                <xs:element name="PlaceOfService" type="xs:string" minOccurs="0" />
+                <xs:element name="NameOfService" type="xs:string" minOccurs="0" />
+                <xs:element name="CostOfService" type="xs:int" minOccurs="0" />
+                <xs:element name="ServiceInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="IDVehicle" type="xs:int" minOccurs="0" />
+                <xs:element name="IDTravelWarrant" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Status">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="StatusID" type="xs:int" minOccurs="0" />
+                <xs:element name="StatusType" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="TravelRoute">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="TravelRouteID" type="xs:int" minOccurs="0" />
+                <xs:element name="x_cordinate_ofDeparture" type="xs:decimal" minOccurs="0" />
+                <xs:element name="y_cordinate_ofDeparture" type="xs:decimal" minOccurs="0" />
+                <xs:element name="x_cordinate_ofArrival" type="xs:decimal" minOccurs="0" />
+                <xs:element name="y_cordinate_ofArrival" type="xs:decimal" minOccurs="0" />
+                <xs:element name="TotalTravelDistance" type="xs:decimal" minOccurs="0" />
+                <xs:element name="AverageSpeed" type="xs:decimal" minOccurs="0" />
+                <xs:element name="IDTravelWarrant" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="TravelWarrant">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="TravelWarrantID" type="xs:int" minOccurs="0" />
+                <xs:element name="DateCreated" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="StartingDate" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="EndingDate" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="IDStatus" type="xs:int" minOccurs="0" />
+                <xs:element name="IDDriver" type="xs:int" minOccurs="0" />
+                <xs:element name="IDVehicle" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Vehicle">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="VehicleID" type="xs:int" minOccurs="0" />
+                <xs:element name="VehicleType" type="xs:string" minOccurs="0" />
+                <xs:element name="VehicleBrand" type="xs:string" minOccurs="0" />
+                <xs:element name="ProductionYear" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="StartingKilometers" type="xs:int" minOccurs="0" />
+                <xs:element name="CurrentKilometers" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <CostOfGasRefill>
+    <CostOfGasRefillID>1</CostOfGasRefillID>
+    <DateCreated>2020-01-10T00:00:00+01:00</DateCreated>
+    <RefillPlaceName>Autocesta A1</RefillPlaceName>
+    <AmountRefilledInLiters>50</AmountRefilledInLiters>
+    <CostOfRefill>500</CostOfRefill>
+    <IDTravelWarrant>1</IDTravelWarrant>
+  </CostOfGasRefill>
+  <CostOfGasRefill>
+    <CostOfGasRefillID>2</CostOfGasRefillID>
+    <DateCreated>2020-01-10T00:00:00+01:00</DateCreated>
+    <RefillPlaceName>Autocesta A1</RefillPlaceName>
+    <AmountRefilledInLiters>100</AmountRefilledInLiters>
+    <CostOfRefill>1000</CostOfRefill>
+    <IDTravelWarrant>2</IDTravelWarrant>
+  </CostOfGasRefill>
+  <CostOfGasRefill>
+    <CostOfGasRefillID>3</CostOfGasRefillID>
+    <DateCreated>2020-04-21T00:00:00+02:00</DateCreated>
+    <RefillPlaceName>Autocesta A1</RefillPlaceName>
+    <AmountRefilledInLiters>25</AmountRefilledInLiters>
+    <CostOfRefill>250</CostOfRefill>
+    <IDTravelWarrant>3</IDTravelWarrant>
+  </CostOfGasRefill>
+  <Driver>
+    <DriverID>1</DriverID>
+    <Name>Pero</Name>
+    <Surname>Peric</Surname>
+    <PhoneNumber>+385912345678</PhoneNumber>
+    <DriverLicenceNumber>12345678</DriverLicenceNumber>
+  </Driver>
+  <Driver>
+    <DriverID>2</DriverID>
+    <Name>Ivo</Name>
+    <Surname>Ivic</Surname>
+    <PhoneNumber>+385912345678</PhoneNumber>
+    <DriverLicenceNumber>87654321</DriverLicenceNumber>
+  </Driver>
+  <Driver>
+    <DriverID>3</DriverID>
+    <Name>Matea</Name>
+    <Surname>Mateic</Surname>
+    <PhoneNumber>+38594234234</PhoneNumber>
+    <DriverLicenceNumber>83682638</DriverLicenceNumber>
+  </Driver>
+  <OccupyedVehicle>
+    <OccupyedVehicleID>1</OccupyedVehicleID>
+    <DateOccupyingStarted>2020-01-10T00:00:00+01:00</DateOccupyingStarted>
+    <IDVehicle>1</IDVehicle>
+  </OccupyedVehicle>
+  <OccupyedVehicle>
+    <OccupyedVehicleID>2</OccupyedVehicleID>
+    <DateOccupyingStarted>2020-01-11T00:00:00+01:00</DateOccupyingStarted>
+    <IDVehicle>1</IDVehicle>
+  </OccupyedVehicle>
+  <OccupyedVehicle>
+    <OccupyedVehicleID>3</OccupyedVehicleID>
+    <DateOccupyingStarted>2019-12-10T00:00:00+01:00</DateOccupyingStarted>
+    <IDVehicle>2</IDVehicle>
+  </OccupyedVehicle>
+  <OccupyedVehicle>
+    <OccupyedVehicleID>4</OccupyedVehicleID>
+    <DateOccupyingStarted>2019-12-11T00:00:00+01:00</DateOccupyingStarted>
+    <IDVehicle>2</IDVehicle>
+  </OccupyedVehicle>
+  <OccupyedVehicle>
+    <OccupyedVehicleID>5</OccupyedVehicleID>
+    <DateOccupyingStarted>2015-04-19T00:00:00+02:00</DateOccupyingStarted>
+    <IDVehicle>3</IDVehicle>
+  </OccupyedVehicle>
+  <OccupyedVehicle>
+    <OccupyedVehicleID>6</OccupyedVehicleID>
+    <DateOccupyingStarted>2015-04-21T00:00:00+02:00</DateOccupyingStarted>
+    <IDVehicle>3</IDVehicle>
+  </OccupyedVehicle>
+  <OccupyingDriver>
+    <OccupyingDriverID>1</OccupyingDriverID>
+    <DateOccupyingStarted>2020-01-10T00:00:00+01:00</DateOccupyingStarted>
+    <IDDriver>1</IDDriver>
+  </OccupyingDriver>
+  <OccupyingDriver>
+    <OccupyingDriverID>2</OccupyingDriverID>
+    <DateOccupyingStarted>2020-01-11T00:00:00+01:00</DateOccupyingStarted>
+    <IDDriver>1</IDDriver>
+  </OccupyingDriver>
+  <OccupyingDriver>
+    <OccupyingDriverID>3</OccupyingDriverID>
+    <DateOccupyingStarted>2019-12-10T00:00:00+01:00</DateOccupyingStarted>
+    <IDDriver>2</IDDriver>
+  </OccupyingDriver>
+  <OccupyingDriver>
+    <OccupyingDriverID>4</OccupyingDriverID>
+    <DateOccupyingStarted>2019-12-11T00:00:00+01:00</DateOccupyingStarted>
+    <IDDriver>2</IDDriver>
+  </OccupyingDriver>
+  <OccupyingDriver>
+    <OccupyingDriverID>5</OccupyingDriverID>
+    <DateOccupyingStarted>2015-04-19T00:00:00+02:00</DateOccupyingStarted>
+    <IDDriver>3</IDDriver>
+  </OccupyingDriver>
+  <OccupyingDriver>
+    <OccupyingDriverID>6</OccupyingDriverID>
+    <DateOccupyingStarted>2015-04-21T00:00:00+02:00</DateOccupyingStarted>
+    <IDDriver>3</IDDriver>
+  </OccupyingDriver>
+  <Service>
+    <ServiceID>1</ServiceID>
+    <PlaceOfService>Zagreb</PlaceOfService>
+    <NameOfService>Zamjena diskova</NameOfService>
+    <CostOfService>1500</CostOfService>
+    <ServiceInfo>AutolimarZagreb</ServiceInfo>
+    <IDVehicle>1</IDVehicle>
+    <IDTravelWarrant>1</IDTravelWarrant>
+  </Service>
+  <Status>
+    <StatusID>1</StatusID>
+    <StatusType>In progress</StatusType>
+  </Status>
+  <Status>
+    <StatusID>2</StatusID>
+    <StatusType>Ended</StatusType>
+  </Status>
+  <TravelRoute>
+    <TravelRouteID>1</TravelRouteID>
+    <x_cordinate_ofDeparture>50.1241241000</x_cordinate_ofDeparture>
+    <y_cordinate_ofDeparture>40.1241251000</y_cordinate_ofDeparture>
+    <x_cordinate_ofArrival>40.5215121000</x_cordinate_ofArrival>
+    <y_cordinate_ofArrival>50.5124110000</y_cordinate_ofArrival>
+    <TotalTravelDistance>20.10</TotalTravelDistance>
+    <AverageSpeed>110.20</AverageSpeed>
+    <IDTravelWarrant>3</IDTravelWarrant>
+  </TravelRoute>
+  <TravelRoute>
+    <TravelRouteID>2</TravelRouteID>
+    <x_cordinate_ofDeparture>60.1241241000</x_cordinate_ofDeparture>
+    <y_cordinate_ofDeparture>10.1241251000</y_cordinate_ofDeparture>
+    <x_cordinate_ofArrival>40.5215121000</x_cordinate_ofArrival>
+    <y_cordinate_ofArrival>90.5124110000</y_cordinate_ofArrival>
+    <TotalTravelDistance>30.21</TotalTravelDistance>
+    <AverageSpeed>90.20</AverageSpeed>
+    <IDTravelWarrant>3</IDTravelWarrant>
+  </TravelRoute>
+  <TravelRoute>
+    <TravelRouteID>3</TravelRouteID>
+    <x_cordinate_ofDeparture>70.1241241000</x_cordinate_ofDeparture>
+    <y_cordinate_ofDeparture>30.1241251000</y_cordinate_ofDeparture>
+    <x_cordinate_ofArrival>30.5215121000</x_cordinate_ofArrival>
+    <y_cordinate_ofArrival>60.5124110000</y_cordinate_ofArrival>
+    <TotalTravelDistance>40.31</TotalTravelDistance>
+    <AverageSpeed>70.20</AverageSpeed>
+    <IDTravelWarrant>3</IDTravelWarrant>
+  </TravelRoute>
+  <TravelRoute>
+    <TravelRouteID>4</TravelRouteID>
+    <x_cordinate_ofDeparture>80.1241241000</x_cordinate_ofDeparture>
+    <y_cordinate_ofDeparture>40.1241251000</y_cordinate_ofDeparture>
+    <x_cordinate_ofArrival>20.5215121000</x_cordinate_ofArrival>
+    <y_cordinate_ofArrival>70.5124110000</y_cordinate_ofArrival>
+    <TotalTravelDistance>50.41</TotalTravelDistance>
+    <AverageSpeed>70.20</AverageSpeed>
+    <IDTravelWarrant>3</IDTravelWarrant>
+  </TravelRoute>
+  <TravelWarrant>
+    <TravelWarrantID>1</TravelWarrantID>
+    <DateCreated>2020-01-10T00:00:00+01:00</DateCreated>
+    <StartingDate>2020-01-10T00:00:00+01:00</StartingDate>
+    <EndingDate>2020-01-11T00:00:00+01:00</EndingDate>
+    <IDStatus>1</IDStatus>
+    <IDDriver>1</IDDriver>
+    <IDVehicle>1</IDVehicle>
+  </TravelWarrant>
+  <TravelWarrant>
+    <TravelWarrantID>2</TravelWarrantID>
+    <DateCreated>2019-12-10T00:00:00+01:00</DateCreated>
+    <StartingDate>2019-12-10T00:00:00+01:00</StartingDate>
+    <EndingDate>2020-12-13T00:00:00+01:00</EndingDate>
+    <IDStatus>2</IDStatus>
+    <IDDriver>2</IDDriver>
+    <IDVehicle>2</IDVehicle>
+  </TravelWarrant>
+  <TravelWarrant>
+    <TravelWarrantID>3</TravelWarrantID>
+    <DateCreated>2015-04-19T00:00:00+02:00</DateCreated>
+    <StartingDate>2015-04-19T00:00:00+02:00</StartingDate>
+    <EndingDate>2015-04-21T00:00:00+02:00</EndingDate>
+    <IDStatus>2</IDStatus>
+    <IDDriver>3</IDDriver>
+    <IDVehicle>3</IDVehicle>
+  </TravelWarrant>
+  <Vehicle>
+    <VehicleID>1</VehicleID>
+    <VehicleType>Kupe</VehicleType>
+    <VehicleBrand>Tesla Model S</VehicleBrand>
+    <ProductionYear>2012-01-01T00:00:00+01:00</ProductionYear>
+    <StartingKilometers>10000</StartingKilometers>
+    <CurrentKilometers>10010</CurrentKilometers>
+  </Vehicle>
+  <Vehicle>
+    <VehicleID>2</VehicleID>
+    <VehicleType>Karavan</VehicleType>
+    <VehicleBrand>Golf 7</VehicleBrand>
+    <ProductionYear>2010-01-01T00:00:00+01:00</ProductionYear>
+    <StartingKilometers>143215</StartingKilometers>
+    <CurrentKilometers>153215</CurrentKilometers>
+  </Vehicle>
+  <Vehicle>
+    <VehicleID>3</VehicleID>
+    <VehicleType>Hatchback</VehicleType>
+    <VehicleBrand>Audi A6</VehicleBrand>
+    <ProductionYear>2016-01-01T00:00:00+01:00</ProductionYear>
+    <StartingKilometers>2000</StartingKilometers>
+    <CurrentKilometers>2100</CurrentKilometers>
+  </Vehicle>
+</NewDataSet>

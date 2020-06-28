@@ -7,14 +7,14 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Web;
-
+using System.Web.UI.WebControls;
 
 namespace PPPK_Project.Models
 {
     public static class DBHelper
     {
         public static string CONNECTION_STRING = System.Configuration.ConfigurationManager.ConnectionStrings["PPPK_DB"].ConnectionString;
-        public static List<string> TABLE_NAMES = new List<string> { "CostOfGasRefil", "Driver", "OccupyedVehicle", "OccupyingDriver", "Service", "Status", "TravelRoute", "TravelWarrant", "Vehicle" };
+        public static List<string> TABLE_NAMES = new List<string> { "CostOfGasRefill", "Driver", "OccupyedVehicle", "OccupyingDriver", "Service", "Status", "TravelRoute", "TravelWarrant", "Vehicle" };
 
         //insert_driver, insert_vehicle, insert_service, insert_costofgasrefill, insert_travelwarrant, insert_trevelroute, delete_service, delete_vehicle, delete_travelwarrant
         //delete_travelroute, delete_driver, select_travelwarrant, select_all_travelwarrants
@@ -317,25 +317,71 @@ namespace PPPK_Project.Models
             }
         }
 
-        public static void RestoreDb()
+        public static void ExportDb()
         {
-            EnableIDInsert();
-            foreach (string tblname in TABLE_NAMES)
+            var xmlFileData = "";
+            DataSet ds = new DataSet();
+
+            foreach (var table in TABLE_NAMES)
             {
+                var query = "SELECT * FROM " + table;
+
                 using (SqlConnection c = new SqlConnection(CONNECTION_STRING))
                 {
-                    DataSet ds = new DataSet(tblname);
-                    //ds.ReadXml(Path.Combine(DATA_DIR, tblname + ".xml")); TO DO
+                    SqlCommand cmd = new SqlCommand(query, c);
+
                     c.Open();
-                    using (SqlBulkCopy cop = new SqlBulkCopy(c, SqlBulkCopyOptions.KeepIdentity, null))
-                    {
-                        cop.DestinationTableName = $"[dbo].[{tblname}]";
-                        cop.WriteToServer(ds.Tables[0]);
-                    }
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable(table);
+                    da.Fill(dt);
+
                     c.Close();
+                    c.Dispose();
+
+                    ds.Tables.Add(dt);
                 }
+
+               
             }
-            DisableIDInsert();
+
+            // xmlFileData = ds.GetXml();
+            var xmlstream = new StringWriter();
+            ds.WriteXml(xmlstream, XmlWriteMode.WriteSchema);
+            string xmlWithSchema = xmlstream.ToString();
+            File.WriteAllText(@"D:\LearningCSharp\MVC Projects\PPPK_Project\PPPK_Project\SelectiveDatabaseBackup.xml", xmlWithSchema);
+        }
+
+        public static void RestoreDb()
+        {
+            //EnableIDInsert();
+            //foreach (string tblname in TABLE_NAMES)
+            //{
+            //    using (SqlConnection c = new SqlConnection(CONNECTION_STRING))
+            //    {
+            //        DataSet ds = new DataSet(tblname);
+            //        //ds.ReadXml(Path.Combine(DATA_DIR, tblname + ".xml")); TO DO
+            //        c.Open();
+            //        using (SqlBulkCopy cop = new SqlBulkCopy(c, SqlBulkCopyOptions.KeepIdentity, null))
+            //        {
+            //            cop.DestinationTableName = $"[dbo].[{tblname}]";
+            //            cop.WriteToServer(ds.Tables[0]);
+            //        }
+            //        c.Close();
+            //    }
+            //}
+            //DisableIDInsert();
+            using (SqlConnection c = new SqlConnection(CONNECTION_STRING))
+            {
+                c.Open();
+                using (SqlCommand a = new SqlCommand("insert_dummy_data", c))
+                {
+                    a.CommandType = CommandType.StoredProcedure;
+                    a.ExecuteNonQuery();
+                }
+                c.Close();
+                c.Close();
+            }
         }
 
         //-----------------------------------------------------------------------------

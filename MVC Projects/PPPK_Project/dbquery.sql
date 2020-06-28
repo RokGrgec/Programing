@@ -187,6 +187,8 @@ as
 		select null
     end
 go
+
+
 create proc delete_travelwarrant
     @id int
 as
@@ -352,3 +354,5 @@ as
 go
 
 exec insert_dummy_data
+
+select * from CostOfGasRefill

@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 public class dbHandler {
     private static final String DEFAULT_JAVA_CLASS = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     private final String PROJECT_DIRECTORY = System.getProperty("user.dir");
-    private static final String URL_FORMAT = "jdbc:sqlserver://KELJO-PC\\SQLEXPRESS;databaseName=PPPK_DATABASE;user=sa;password=SQL"; //CHANGE ME
+    private static final String URL_FORMAT = "jdbc:sqlserver://localhost\\DESKTOP-VKPMS9H:1433;databaseName=pppkDB;user=RokGrgec;password=test"; //CHANGE ME
     private static dbHandler instance = null;
     private static Connection connection = null;
     
@@ -127,7 +127,7 @@ public class dbHandler {
         }
     }
     
-    public void InsertVozilo(Vehicle v){
+    public void InsertVehicle(Vehicle v){
         CallableStatement cstmt = null;
         try{
             OpenConnection();
@@ -149,7 +149,7 @@ public class dbHandler {
         CallableStatement cstmt = null;
         try{
             OpenConnection();
-            cstmt = connection.prepareCall("{call insert_ruta(?,?,?,?,?,?,?)}");
+            cstmt = connection.prepareCall("{call insert_travelroute(?,?,?,?,?,?,?)}");
             cstmt.setInt("IDTravelWarrant", r.getId_travelWarrant());
             cstmt.setDouble("x_cordinate_ofDeparture", r.getX_cordinate_ofDeparture());
             cstmt.setDouble("y_cordinate_ofDeparture", r.getY_cordinate_ofDeparture());
