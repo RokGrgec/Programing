@@ -5,6 +5,8 @@
  */
 package constructors;
 
+import java.sql.Date;
+
 /**
  *
  * @author rokgr
@@ -13,7 +15,7 @@ public class Vehicle {
     private int id;
     private String vehicletype;
     private String vehicleBrand;
-    private int productionYear;
+    private Date productionYear;
     private int startingKm;
     private int currentKm;
 
@@ -29,7 +31,7 @@ public class Vehicle {
         this.vehicleBrand = vehicleBrand;
     }
 
-    public void setProductionYear(int productionYear) {
+    public void setProductionYear(Date productionYear) {
         this.productionYear = productionYear;
     }
 
@@ -53,7 +55,7 @@ public class Vehicle {
         return vehicleBrand;
     }
 
-    public int getProductionYear() {
+    public Date getProductionYear() {
         return productionYear;
     }
 
@@ -65,7 +67,7 @@ public class Vehicle {
         return currentKm;
     }
 
-    public Vehicle(String vehicletype, String vehicleBrand, int productionYear, int startingKm, int currentKm) {
+    public Vehicle(String vehicletype, String vehicleBrand, Date productionYear, int startingKm, int currentKm) {
         this.vehicletype = vehicletype;
         this.vehicleBrand = vehicleBrand;
         this.productionYear = productionYear;
@@ -73,7 +75,7 @@ public class Vehicle {
         this.currentKm = currentKm;
     }
 
-    public Vehicle(int id, String vehicletype, String vehicleBrand, int productionYear, int startingKm, int currentKm) {
+    public Vehicle(int id, String vehicletype, String vehicleBrand, Date productionYear, int startingKm, int currentKm) {
         this.id = id;
         this.vehicletype = vehicletype;
         this.vehicleBrand = vehicleBrand;

@@ -3,12 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package SourcePackages;
+package dataExport;
 
-import java.io.FileNotFoundException;
-import java.nio.file.Paths;
-import java.sql.Date;
-import javax.security.auth.login.Configuration;
+
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
@@ -18,7 +15,7 @@ import java.nio.file.Paths;
 import java.sql.Date;
 import javax.persistence.ParameterMode;
 import javax.persistence.StoredProcedureQuery;
-import models.PN_for_pdf;
+import constructors.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -36,21 +33,22 @@ public class toPDF {
         try(SessionFactory sessionFactory = cfg.buildSessionFactory();
                 Session session = sessionFactory.openSession()){
             session.beginTransaction();
-            StoredProcedureQuery spq = session.createStoredProcedureCall("dohvati_putni_nalog");
+            StoredProcedureQuery spq = session.createStoredProcedureCall("select_travelwarrant");
             spq.registerStoredProcedureParameter("id", int.class, ParameterMode.IN);
             spq.setParameter("id", id);
             spq.execute();
             Object[] result = (Object[]) spq.getResultList().get(0);
-            String datum_izrade = ((Date)result[4]).toString();
-            String datum_pocetka = ((Date)result[5]).toString();
-            String datum_zavrsetka = ((Date)result[6]).toString();
-            String status = (String) result[7];
-            String ime = (String) result[8];
-            String prezime = (String) result[9];
-            String marka = (String) result[10];
-            String godina_proizvodnje = String.valueOf((int)result[11]);
+            String DateCreated = ((Date)result[1]).toString();
+            String StartingDate = ((Date)result[2]).toString();
+            String EndingDate = ((Date)result[3]).toString();
+            String StatusType = (String) result[7];
+            String Name = (String) result[8];
+            String Surname = (String) result[9];
+            String VehicleType = (String) result[10];
+            String VehicleBrand = (String) result[11];
+            String ProductionYear = ((Date)result[12]).toString();
             
-            PN_for_pdf pfp = new PN_for_pdf(datum_izrade, datum_pocetka, datum_zavrsetka, status, ime, prezime, marka, godina_proizvodnje);
+            TravelWarrant_pdf pfp = new TravelWarrant_pdf(DateCreated, StartingDate, EndingDate, Name, Surname, VehicleType, VehicleBrand, ProductionYear, StatusType);
             
             writeToPdf(pfp);
             
@@ -61,23 +59,27 @@ public class toPDF {
        
     }
     
-    private void writeToPdf(PN_for_pdf pfp) throws FileNotFoundException{
+    private void writeToPdf(TravelWarrant_pdf pfp) throws FileNotFoundException{
         String dest = Paths.get(this.path, this.fname).toString();
         PdfWriter writer = new PdfWriter(dest);
         PdfDocument pdf = new PdfDocument(writer);
 
         Document document = new Document(pdf);
         String para1 = String.format(
-                "Datum izrade: %s \n"
-                + "Datum pocetka: %s , Datum zavrsetka: %s \n"
-                + "INFO O VOZACU\n"
+                "Date created: %s \n"
+                + "Date of start: %s , Date of end: %s \n"
+                + "DRIVER INFO\n"
                 + "%s %s \n"
-                + "INFO O VOZILU\n"
-                + "%s(%s) \n"
-                + "STATUS PUTNOG NALOGA: %s",
-                pfp.getDatum_izrade(),pfp.getDatum_pocetka(),pfp.getDatum_zavrsetka(),
-                pfp.getIme(),pfp.getPrezime(),
-                pfp.getMarka(),pfp.getGodina_proizvodnje(),pfp.getStatus());
+                + "VEHICLE INFO\n"
+                + "%s %s \n"
+                + "Production year: %s \n"
+                + "Travel Warrant Status Type: %s",
+                pfp.getDateCreated(),pfp.getStartingDate(),pfp.getEndingDate(),
+                pfp.getName(),pfp.getSurname(),
+                pfp.getVehicleType(),pfp.getVehicleBrand(),
+                pfp.getProductionYear(),
+                pfp.getStatus()
+        );
         Paragraph paragraph1 = new Paragraph(para1);
         document.add(paragraph1);
         document.close();  
@@ -90,8 +92,6 @@ public class toPDF {
         Configuration cfg = new Configuration()
                 .setProperty("hibernate.connection.driver_class", "com.microsoft.sqlserver.jdbc.SQLServerDriver")
                 .setProperty("hibernate.connection.url", url)
-                .setProperty("hibernate.connection.username", "sa")
-                .setProperty("hibernate.connection.password", "SQL")
                 .setProperty("hibernate.connection.autocommit", "true")
                 .setProperty("hibernate.show_sql", "false");
 

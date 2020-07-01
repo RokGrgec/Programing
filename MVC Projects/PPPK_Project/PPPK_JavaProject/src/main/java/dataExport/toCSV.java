@@ -3,14 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package SourcePackages;
+package dataExport;
 
-import DataBase.dbHandler;
+import dbHandler.dbHandler;
 import constructors.Driver;
 import constructors.Vehicle;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -27,7 +29,8 @@ public class toCSV {
                 String[] data = line.split(cvsSplitBy);
                 String type = data[0];
                 String brand = data[1];
-                int production_year = Integer.parseInt(data[2]);
+                SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+                Date production_year = (Date) format.parse("01/01/1998");
                 int starting_km = Integer.parseInt(data[3]);
                 int current_km = Integer.parseInt(data[4]);
                 
@@ -50,12 +53,12 @@ public class toCSV {
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(cvsSplitBy);
-                String Name =           data[0];
-                String Surname =       data[1];
-                String Phone_num = data[2];
-                String Licence_num =  data[3];
+                String fname =           data[0];
+                String lastname =       data[1];
+                String phonenum = data[2];
+                String driverlicensenum =  data[3];
                 
-                Driver d = new Driver(Name,Surname,Phone_num,Licence_num);
+                Driver d = new Driver(fname,lastname,phonenum,driverlicensenum);
                 db.InsertDriver(d);
                 ++number;
             }
@@ -66,11 +69,11 @@ public class toCSV {
         }
     }
 
-    public int importVozaci(String toString) {
+    public int importDrivers(String toString) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public int importVozila(String toString) {
+    public int importVehicles(String toString) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

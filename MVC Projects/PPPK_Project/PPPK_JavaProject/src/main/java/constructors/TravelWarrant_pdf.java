@@ -11,24 +11,15 @@ package constructors;
  */
 public class TravelWarrant_pdf {
 
-    public TravelWarrant_pdf(String dateCreated, String startingDate, String endingDate, String status, String name, String surname, String vehicleBrand, String productionYear) {
+    public TravelWarrant_pdf(String dateCreated, String startingDate, String endingDate, String name, String surname, String vehicleType, String vehicleBrand, String productionYear, String status) {
         this.dateCreated = dateCreated;
         this.startingDate = startingDate;
         this.endingDate = endingDate;
-        this.status = status;
         this.name = name;
         this.surname = surname;
+        this.vehicleType = vehicleType;
         this.vehicleBrand = vehicleBrand;
-        this.productionYear = productionYear;
-    }
-
-    public TravelWarrant_pdf(String startingDate, String endingDate, String status, String name, String surname, String vehicleBrand, String productionYear) {
-        this.startingDate = startingDate;
-        this.endingDate = endingDate;
         this.status = status;
-        this.name = name;
-        this.surname = surname;
-        this.vehicleBrand = vehicleBrand;
         this.productionYear = productionYear;
     }
 
@@ -60,6 +51,10 @@ public class TravelWarrant_pdf {
         return vehicleBrand;
     }
 
+    public String getVehicleType() {
+        return vehicleType;
+    }
+    
     public String getProductionYear() {
         return productionYear;
     }
@@ -70,6 +65,7 @@ public class TravelWarrant_pdf {
     private String name;
     private String surname;
     private String vehicleBrand;
+    private String vehicleType;
     private String productionYear;
 
     public void setDateCreated(String dateCreated) {

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DataBase;
+package dbHandler;
 
 import constructors.*;
 import java.io.IOException;
@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 public class dbHandler {
     private static final String DEFAULT_JAVA_CLASS = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     private final String PROJECT_DIRECTORY = System.getProperty("user.dir");
-    private static final String URL_FORMAT = "jdbc:sqlserver://localhost\\DESKTOP-VKPMS9H:1433;databaseName=pppkDB;user=RokGrgec;password=test"; //CHANGE ME
+    private static final String URL_FORMAT = "jdbc:sqlserver://localhost\\DESKTOP-VKPMS9H:1433;databaseName=pppkDB;user=RokGrgec;password=test";
     private static dbHandler instance = null;
     private static Connection connection = null;
     
@@ -115,10 +115,10 @@ public class dbHandler {
         try{
             OpenConnection();
             cstmt = connection.prepareCall("{call insert_driver(?,?,?,?)}");
-            cstmt.setString("Name", d.getName());
-            cstmt.setString("Surname", d.getSurname());
-            cstmt.setString("PhoneNumber", d.getPhoneNum());
-            cstmt.setString("DriverLicenceNumber", d.getLicenceNum());
+            cstmt.setString("fname", d.getName());
+            cstmt.setString("lastname", d.getSurname());
+            cstmt.setString("phonenum", d.getPhoneNum());
+            cstmt.setString("driverlicensenum", d.getLicenceNum());
             cstmt.execute();
         }catch(Exception ex){
             ex.printStackTrace();
@@ -131,12 +131,12 @@ public class dbHandler {
         CallableStatement cstmt = null;
         try{
             OpenConnection();
-            cstmt = connection.prepareCall("{call insert_vozilo(?,?,?,?,?)}");
-            cstmt.setString("VehicleType", v.getVehicletype());
-            cstmt.setString("VehicleBrand", v.getVehicleBrand());
-            cstmt.setInt("ProductionYear", v.getProductionYear());
-            cstmt.setInt("StartingKilometers", v.getStartingKm());
-            cstmt.setInt("CurrentKilometers", v.getCurrentKm());
+            cstmt = connection.prepareCall("{call insert_vehicle(?,?,?,?,?)}");
+            cstmt.setString("type", v.getVehicletype());
+            cstmt.setString("model", v.getVehicleBrand());
+            cstmt.setDate("prodyear", v.getProductionYear());
+            cstmt.setInt("startingkilometers", v.getStartingKm());
+            cstmt.setInt("currentkilometers", v.getCurrentKm());
             cstmt.execute();
         }catch(SQLException ex){
             ex.printStackTrace();
@@ -150,13 +150,13 @@ public class dbHandler {
         try{
             OpenConnection();
             cstmt = connection.prepareCall("{call insert_travelroute(?,?,?,?,?,?,?)}");
-            cstmt.setInt("IDTravelWarrant", r.getId_travelWarrant());
-            cstmt.setDouble("x_cordinate_ofDeparture", r.getX_cordinate_ofDeparture());
-            cstmt.setDouble("y_cordinate_ofDeparture", r.getY_cordinate_ofDeparture());
-            cstmt.setDouble("x_cordinate_ofArrival", r.getX_cordinate_ofArrival());
-            cstmt.setDouble("y_cordinate_ofArrival", r.getY_cordinate_ofArrival());
-            cstmt.setDouble("TotalTravelDistance", r.getTotalTravelDistance());
-            cstmt.setDouble("AverageSpeed", r.getAverageSpeed());
+            cstmt.setDouble("x_departure", r.getX_cordinate_ofDeparture());
+            cstmt.setDouble("y_departure", r.getY_cordinate_ofDeparture());
+            cstmt.setDouble("x_arrival", r.getX_cordinate_ofArrival());
+            cstmt.setDouble("y_arrival", r.getY_cordinate_ofArrival());
+            cstmt.setDouble("distance", r.getTotalTravelDistance());
+            cstmt.setDouble("speed", r.getAverageSpeed());
+            cstmt.setInt("IDtravelwarrant", r.getId_travelWarrant());
             cstmt.execute();
         }catch (SQLException ex){
             ex.printStackTrace();

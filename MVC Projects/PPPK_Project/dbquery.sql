@@ -262,7 +262,7 @@ create proc select_travelwarrant
     @id int
 as
     if exists(select TravelWarrantID from TravelWarrant where TravelWarrantID=@id) begin
-        select tw.*,s.StatusType,d.[Name],d.Surname,v.VehicleType,v.VehicleBrand,v.VehicleType from TravelWarrant as tw
+        select tw.*,s.StatusType,d.[Name],d.Surname,v.VehicleType,v.VehicleBrand,v.ProductionYear from TravelWarrant as tw
             left join Driver as d on tw.IDDriver = d.DriverID
             left join Vehicle as v on tw.IDVehicle = v.VehicleID
             left join [Status] as s on tw.IDStatus = s.StatusID
@@ -354,5 +354,10 @@ as
 go
 
 exec insert_dummy_data
+go
 
 select * from CostOfGasRefill
+go
+
+exec select_travelwarrant 1
+go 
