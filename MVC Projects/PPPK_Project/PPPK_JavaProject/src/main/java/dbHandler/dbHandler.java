@@ -177,12 +177,12 @@ public class dbHandler {
             while(rs.next()){
                 TravelRoute r = new TravelRoute(
                         rs.getInt("TravelRouteID"),
-                        rs.getDouble("AverageSpeed"),
-                        rs.getDouble("x_cordinate_ofDeparture"),
-                        rs.getDouble("y_cordinate_ofDeparture"),
-                        rs.getDouble("x_cordinate_ofArrival"),
-                        rs.getDouble("y_cordinate_ofArrival"),
-                        rs.getDouble("TotalTravelDistance"),
+                        rs.getDouble("x_departure"),
+                        rs.getDouble("y_departure"),
+                        rs.getDouble("x_arrival"),
+                        rs.getDouble("y_arrival"),
+                        rs.getDouble("speed"),
+                        rs.getDouble("distance"),
                         rs.getInt("IDTravelWarrant")
                 );
                 l.add(r);

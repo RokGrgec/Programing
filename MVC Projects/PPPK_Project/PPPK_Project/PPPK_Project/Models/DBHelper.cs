@@ -213,7 +213,7 @@ namespace PPPK_Project.Models
             }
         }
         //----------------------------------------------------------------------------------------------------------------
-        public static int insertTravelWarrant(DateTime? starting_date, DateTime? ending_date, int driver_id, int vehicle_id)
+        public static int insertTravelWarrant(DateTime? starting_date, DateTime? ending_date, int id_status, int driver_id, int vehicle_id)
         {
             DateTime date_created = DateTime.Now;
             using (SqlConnection con = new SqlConnection(CONNECTION_STRING))
@@ -222,12 +222,12 @@ namespace PPPK_Project.Models
                 using (SqlCommand c = new SqlCommand("insert_travelwarrant", con))
                 {
                     c.CommandType = CommandType.StoredProcedure;
-                    c.Parameters.AddWithValue("@IDDriver", driver_id);
-                    c.Parameters.AddWithValue("@IDVehicle", vehicle_id);
-                    c.Parameters.AddWithValue("IDStatus", 1);
                     c.Parameters.AddWithValue("@datecreated", date_created);
                     c.Parameters.AddWithValue("@dateofstart", starting_date);
                     c.Parameters.AddWithValue("@dateofending", ending_date);
+                    c.Parameters.AddWithValue("IDStatus", id_status = 1);
+                    c.Parameters.AddWithValue("@IDDriver", driver_id = 1);
+                    c.Parameters.AddWithValue("@IDVehicle", vehicle_id = 1);
                     object result = c.ExecuteScalar();
                     result = (result == DBNull.Value) ? 0 : result;
                     int ret = Convert.ToInt32(result);

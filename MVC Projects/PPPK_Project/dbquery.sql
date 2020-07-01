@@ -361,3 +361,9 @@ go
 
 exec select_travelwarrant 1
 go 
+
+
+exec insert_travelwarrant '09/01/2020','10/01/2020', '09/01/2020', 1,1,1
+
+go
+select * from TravelRoute

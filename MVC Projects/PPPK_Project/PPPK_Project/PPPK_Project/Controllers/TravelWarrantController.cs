@@ -39,9 +39,9 @@ namespace PPPK_Project.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult InsertTravelWarrant(DateTime starting_date, DateTime ending_date, string driver_id, string vehicle_id)
+        public ActionResult InsertTravelWarrant(DateTime starting_date, DateTime ending_date, string status_id, string driver_id, string vehicle_id)
         {
-            DBHelper.insertTravelWarrant(starting_date, ending_date, Convert.ToInt32(driver_id), Convert.ToInt32(vehicle_id));
+            DBHelper.insertTravelWarrant(starting_date, ending_date, Convert.ToInt32(status_id), Convert.ToInt32(driver_id), Convert.ToInt32(vehicle_id));
             return View("AllTravelWarrants");
         }
     }

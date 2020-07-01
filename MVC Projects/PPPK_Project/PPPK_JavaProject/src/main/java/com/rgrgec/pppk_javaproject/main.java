@@ -30,11 +30,11 @@ public class main {
         // rute Import/export to XML
         toXML xdh = new toXML();
         System.out.println("Route importing..");
-        //n = xdh.importRute(Paths.get(DATA_DIRECTORY_PATH,"rutes.xml").toString());
+        n = xdh.importRoute(Paths.get(DATA_DIRECTORY_PATH,"route.xml").toString());
         System.out.println("Broj uvezenih ruta: " + n);
         
         System.out.println("Route exporting..");
-        //n = xdh.exportRute(1,DATA_DIRECTORY_PATH,"EXPORT_route.xml");
+        n = xdh.exportRoute(1,DATA_DIRECTORY_PATH,"EXPORT_route.xml");
         System.out.println("Broj izvezenih ruta: " + n);
     
         System.out.println("Generiranje PDF-a");
