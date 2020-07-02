@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<travel_warrant id="1">
+    <travel_route id="5">
+        <x_cordinate_ofDeparture>50,123000</x_cordinate_ofDeparture>
+        <y_cordinate_ofDeparture>60,123000</y_cordinate_ofDeparture>
+        <x_cordinate_ofArrival>50,123000</x_cordinate_ofArrival>
+        <y_cordinate_ofArrival>50,123000</y_cordinate_ofArrival>
+        <totalTravelDistance>123,200000</totalTravelDistance>
+        <averageSpeed>12,200000</averageSpeed>
+    </travel_route>
+    <travel_route id="6">
+        <x_cordinate_ofDeparture>50,123456</x_cordinate_ofDeparture>
+        <y_cordinate_ofDeparture>50,123456</y_cordinate_ofDeparture>
+        <x_cordinate_ofArrival>70,123456</x_cordinate_ofArrival>
+        <y_cordinate_ofArrival>60,123456</y_cordinate_ofArrival>
+        <totalTravelDistance>10,200000</totalTravelDistance>
+        <averageSpeed>63,000000</averageSpeed>
+    </travel_route>
+</travel_warrant>

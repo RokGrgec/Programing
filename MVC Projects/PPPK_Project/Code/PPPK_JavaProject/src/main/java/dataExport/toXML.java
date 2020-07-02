@@ -43,12 +43,12 @@ public class toXML {
                 fWriter.append(
                     String.format(
                         "    <travel_route id=\"%d\">\n"
-                        + "        <x_departure>%f</x_departure>\n"
-                        + "        <y_departure>%f</y_departure>\n"
-                        + "        <x_arrival>%f</x_arrival>\n"
-                        + "        <y_arrival>%f</y_arrival>\n"
-                        + "        <distance>%f</distance>\n"
-                        + "        <speed>%f</speed>\n"
+                        + "        <x_cordinate_ofDeparture>%f</x_cordinate_ofDeparture>\n"
+                        + "        <y_cordinate_ofDeparture>%f</y_cordinate_ofDeparture>\n"
+                        + "        <x_cordinate_ofArrival>%f</x_cordinate_ofArrival>\n"
+                        + "        <y_cordinate_ofArrival>%f</y_cordinate_ofArrival>\n"
+                        + "        <totalTravelDistance>%f</totalTravelDistance>\n"
+                        + "        <averageSpeed>%f</averageSpeed>\n"
                         + "    </travel_route>\n",
                         r.getId(),r.getX_cordinate_ofDeparture(),
                         r.getY_cordinate_ofDeparture(),r.getX_cordinate_ofArrival(),
@@ -79,13 +79,13 @@ public class toXML {
                 Node nNode = nList.item(temp);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) nNode;
-                    int IDtravelwarrant =      Integer.parseInt(eElement.getElementsByTagName("IDtravelwarrant").item(0).getTextContent());
                     double x_cordinate_ofDeparture =   Double.parseDouble(eElement.getElementsByTagName("x_departure").item(0).getTextContent());
                     double y_departure =   Double.parseDouble(eElement.getElementsByTagName("y_departure").item(0).getTextContent());
                     double x_arrival =   Double.parseDouble(eElement.getElementsByTagName("x_arrival").item(0).getTextContent());
                     double y_arrival =   Double.parseDouble(eElement.getElementsByTagName("y_arrival").item(0).getTextContent());
                     double distance =    Double.parseDouble(eElement.getElementsByTagName("distance").item(0).getTextContent());
                     double speed = Double.parseDouble(eElement.getElementsByTagName("speed").item(0).getTextContent());
+                    int IDtravelwarrant =      Integer.parseInt(eElement.getElementsByTagName("IDtravelwarrant").item(0).getTextContent());
                     TravelRoute r = new TravelRoute(
                             x_cordinate_ofDeparture,
                             y_departure,

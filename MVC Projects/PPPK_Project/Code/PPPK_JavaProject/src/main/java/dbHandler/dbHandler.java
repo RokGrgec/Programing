@@ -149,7 +149,7 @@ public class dbHandler {
         CallableStatement cstmt = null;
         try{
             OpenConnection();
-            cstmt = connection.prepareCall("{call insert_travelroute(?,?,?,?,?,?,?)}");
+            cstmt = connection.prepareCall("{call insert_trevelroute(?,?,?,?,?,?,?)}");
             cstmt.setDouble("x_departure", r.getX_cordinate_ofDeparture());
             cstmt.setDouble("y_departure", r.getY_cordinate_ofDeparture());
             cstmt.setDouble("x_arrival", r.getX_cordinate_ofArrival());
@@ -177,12 +177,12 @@ public class dbHandler {
             while(rs.next()){
                 TravelRoute r = new TravelRoute(
                         rs.getInt("TravelRouteID"),
-                        rs.getDouble("x_departure"),
-                        rs.getDouble("y_departure"),
-                        rs.getDouble("x_arrival"),
-                        rs.getDouble("y_arrival"),
-                        rs.getDouble("speed"),
-                        rs.getDouble("distance"),
+                        rs.getDouble("x_cordinate_ofDeparture"),
+                        rs.getDouble("y_cordinate_ofDeparture"),
+                        rs.getDouble("x_cordinate_ofArrival"),
+                        rs.getDouble("y_cordinate_ofArrival"),
+                        rs.getDouble("totalTravelDistance"),
+                        rs.getDouble("averageSpeed"),
                         rs.getInt("IDTravelWarrant")
                 );
                 l.add(r);

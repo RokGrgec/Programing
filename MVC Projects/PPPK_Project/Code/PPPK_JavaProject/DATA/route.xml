@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <travel_warrant>
   <travel_route>
-    <IDtravelwarrant>1</IDtravelwarrant>
     <x_departure>50.123456</x_departure>
     <y_departure>50.123456</y_departure>
     <x_arrival>70.123456</x_arrival>
     <y_arrival>60.123456</y_arrival>
     <distance>10.2</distance>
     <speed>63.2</speed>
+    <IDtravelwarrant>1</IDtravelwarrant>
   </travel_route>
   <travel_route>
-    <IDtravelwarrant>2</IDtravelwarrant>
     <x_departure>10.123456</x_departure>
     <y_departure>10.123456</y_departure>
     <x_arrival>10.123456</x_arrival>
     <y_arrival>10.123456</y_arrival>
     <distance>11.2</distance>
     <speed>23.2</speed>
+    <IDtravelwarrant>2</IDtravelwarrant>
   </travel_route>
 </travel_warrant>

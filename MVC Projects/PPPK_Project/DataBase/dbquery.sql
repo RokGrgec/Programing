@@ -356,14 +356,30 @@ go
 exec insert_dummy_data
 go
 
-select * from CostOfGasRefill
-go
+--select * from CostOfGasRefill
+--go
 
-exec select_travelwarrant 1
-go 
+--exec select_travelwarrant 1
+--go 
 
 
-exec insert_travelwarrant '09/01/2020','10/01/2020', '09/01/2020', 1,1,1
+--exec insert_travelwarrant '09/01/2020','10/01/2020', '09/01/2020', 1,1,1
 
-go
-select * from TravelRoute
+--go
+--select * from TravelRoute
+
+--exec insert_trevelroute 50.123, 60.123, 50.123, 50.123, 123.2, 12.2, 1
+--go
+--create proc insert_trevelroute
+--	@x_departure decimal(20,10),
+--	@y_departure decimal(20,10),
+--	@x_arrival decimal(20,10), 
+--	@y_arrival decimal(20,10),
+--	@distance decimal(10,2), 
+--	@speed decimal(6,2),
+--	@IDtravelwarrant int
+--as
+--	insert into TravelRoute (x_cordinate_ofDeparture, y_cordinate_ofDeparture, x_cordinate_ofArrival, y_cordinate_ofArrival, TotalTravelDistance, AverageSpeed, IDTravelWarrant) values (@x_departure, @y_departure, @x_arrival, @y_arrival, @distance, @speed, @IDtravelwarrant)
+--go
+
+--select * from TravelRoute 
