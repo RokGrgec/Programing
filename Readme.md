@@ -8,7 +8,7 @@
 [MVC Projects](/MVC%20Projects)
   - [Meal Planner App](/MVC%20Projects/DiabetesHelperUser)
     - Applicaion that creates weakly menus for user based on his BMI data
-  - [Rent a Vehicle App](/PPPK_Project)
+  - [Rent a Vehicle App](/MVC%20Projects/PPPK_Project)
     - Application that enables user to select free vehicle and rent it
     
 [Windows Forms/WPF Project](/WindowsForms)
