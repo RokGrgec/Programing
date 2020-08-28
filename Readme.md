@@ -2,8 +2,13 @@
 
 ## About
 
-[CSharp Yellow Book Notes](CSharpYellowBook)
+[CSharp Yellow Book Notes](/CSharpYellowBook)
+  - Notes from CS Yellow Book book
 
-[MVC Project](MVC%20Project)
-
-[Windows Forms/WPF Project](WindowsForms)
+[MVC Projects](/MVC%20Projects)
+  - [Meal Planner App](/MVC%20Projects/DiabetesHelperUser)
+    - Applicaion that creates weakly menus for user based on his BMI data
+  - [Rent a Vehicle App](/PPPK_Project)
+    - Application that enables user to select free vehicle and rent it
+    
+[Windows Forms/WPF Project](/WindowsForms)
