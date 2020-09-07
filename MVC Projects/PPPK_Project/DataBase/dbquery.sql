@@ -1,4 +1,4 @@
-﻿use use [master]
+﻿use [master]
 go
 
 create database pppkDB

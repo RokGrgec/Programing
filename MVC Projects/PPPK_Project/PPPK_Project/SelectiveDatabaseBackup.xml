@@ -124,14 +124,6 @@
     <CostOfRefill>1000</CostOfRefill>
     <IDTravelWarrant>2</IDTravelWarrant>
   </CostOfGasRefill>
-  <CostOfGasRefill>
-    <CostOfGasRefillID>3</CostOfGasRefillID>
-    <DateCreated>2020-04-21T00:00:00+02:00</DateCreated>
-    <RefillPlaceName>Autocesta A1</RefillPlaceName>
-    <AmountRefilledInLiters>25</AmountRefilledInLiters>
-    <CostOfRefill>250</CostOfRefill>
-    <IDTravelWarrant>3</IDTravelWarrant>
-  </CostOfGasRefill>
   <Driver>
     <DriverID>1</DriverID>
     <Name>Pero</Name>
@@ -147,18 +139,11 @@
     <DriverLicenceNumber>87654321</DriverLicenceNumber>
   </Driver>
   <Driver>
-    <DriverID>3</DriverID>
-    <Name>Matea</Name>
-    <Surname>Mateic</Surname>
-    <PhoneNumber>+38594234234</PhoneNumber>
-    <DriverLicenceNumber>83682638</DriverLicenceNumber>
-  </Driver>
-  <Driver>
-    <DriverID>72</DriverID>
+    <DriverID>4</DriverID>
     <Name>test</Name>
     <Surname>test</Surname>
-    <PhoneNumber>+385666777888</PhoneNumber>
-    <DriverLicenceNumber>988267346823</DriverLicenceNumber>
+    <PhoneNumber>test</PhoneNumber>
+    <DriverLicenceNumber>test</DriverLicenceNumber>
   </Driver>
   <OccupyedVehicle>
     <OccupyedVehicleID>1</OccupyedVehicleID>
@@ -210,16 +195,6 @@
     <DateOccupyingStarted>2019-12-11T00:00:00+01:00</DateOccupyingStarted>
     <IDDriver>2</IDDriver>
   </OccupyingDriver>
-  <OccupyingDriver>
-    <OccupyingDriverID>5</OccupyingDriverID>
-    <DateOccupyingStarted>2015-04-19T00:00:00+02:00</DateOccupyingStarted>
-    <IDDriver>3</IDDriver>
-  </OccupyingDriver>
-  <OccupyingDriver>
-    <OccupyingDriverID>6</OccupyingDriverID>
-    <DateOccupyingStarted>2015-04-21T00:00:00+02:00</DateOccupyingStarted>
-    <IDDriver>3</IDDriver>
-  </OccupyingDriver>
   <Service>
     <ServiceID>1</ServiceID>
     <PlaceOfService>Zagreb</PlaceOfService>
@@ -237,76 +212,6 @@
     <StatusID>2</StatusID>
     <StatusType>Ended</StatusType>
   </Status>
-  <TravelRoute>
-    <TravelRouteID>1</TravelRouteID>
-    <x_cordinate_ofDeparture>50.1241241000</x_cordinate_ofDeparture>
-    <y_cordinate_ofDeparture>40.1241251000</y_cordinate_ofDeparture>
-    <x_cordinate_ofArrival>40.5215121000</x_cordinate_ofArrival>
-    <y_cordinate_ofArrival>50.5124110000</y_cordinate_ofArrival>
-    <TotalTravelDistance>20.10</TotalTravelDistance>
-    <AverageSpeed>110.20</AverageSpeed>
-    <IDTravelWarrant>3</IDTravelWarrant>
-  </TravelRoute>
-  <TravelRoute>
-    <TravelRouteID>2</TravelRouteID>
-    <x_cordinate_ofDeparture>60.1241241000</x_cordinate_ofDeparture>
-    <y_cordinate_ofDeparture>10.1241251000</y_cordinate_ofDeparture>
-    <x_cordinate_ofArrival>40.5215121000</x_cordinate_ofArrival>
-    <y_cordinate_ofArrival>90.5124110000</y_cordinate_ofArrival>
-    <TotalTravelDistance>30.21</TotalTravelDistance>
-    <AverageSpeed>90.20</AverageSpeed>
-    <IDTravelWarrant>3</IDTravelWarrant>
-  </TravelRoute>
-  <TravelRoute>
-    <TravelRouteID>3</TravelRouteID>
-    <x_cordinate_ofDeparture>70.1241241000</x_cordinate_ofDeparture>
-    <y_cordinate_ofDeparture>30.1241251000</y_cordinate_ofDeparture>
-    <x_cordinate_ofArrival>30.5215121000</x_cordinate_ofArrival>
-    <y_cordinate_ofArrival>60.5124110000</y_cordinate_ofArrival>
-    <TotalTravelDistance>40.31</TotalTravelDistance>
-    <AverageSpeed>70.20</AverageSpeed>
-    <IDTravelWarrant>3</IDTravelWarrant>
-  </TravelRoute>
-  <TravelRoute>
-    <TravelRouteID>4</TravelRouteID>
-    <x_cordinate_ofDeparture>80.1241241000</x_cordinate_ofDeparture>
-    <y_cordinate_ofDeparture>40.1241251000</y_cordinate_ofDeparture>
-    <x_cordinate_ofArrival>20.5215121000</x_cordinate_ofArrival>
-    <y_cordinate_ofArrival>70.5124110000</y_cordinate_ofArrival>
-    <TotalTravelDistance>50.41</TotalTravelDistance>
-    <AverageSpeed>70.20</AverageSpeed>
-    <IDTravelWarrant>3</IDTravelWarrant>
-  </TravelRoute>
-  <TravelRoute>
-    <TravelRouteID>5</TravelRouteID>
-    <x_cordinate_ofDeparture>50.1230000000</x_cordinate_ofDeparture>
-    <y_cordinate_ofDeparture>60.1230000000</y_cordinate_ofDeparture>
-    <x_cordinate_ofArrival>50.1230000000</x_cordinate_ofArrival>
-    <y_cordinate_ofArrival>50.1230000000</y_cordinate_ofArrival>
-    <TotalTravelDistance>123.20</TotalTravelDistance>
-    <AverageSpeed>12.20</AverageSpeed>
-    <IDTravelWarrant>1</IDTravelWarrant>
-  </TravelRoute>
-  <TravelRoute>
-    <TravelRouteID>6</TravelRouteID>
-    <x_cordinate_ofDeparture>50.1234560000</x_cordinate_ofDeparture>
-    <y_cordinate_ofDeparture>50.1234560000</y_cordinate_ofDeparture>
-    <x_cordinate_ofArrival>70.1234560000</x_cordinate_ofArrival>
-    <y_cordinate_ofArrival>60.1234560000</y_cordinate_ofArrival>
-    <TotalTravelDistance>10.20</TotalTravelDistance>
-    <AverageSpeed>63.00</AverageSpeed>
-    <IDTravelWarrant>1</IDTravelWarrant>
-  </TravelRoute>
-  <TravelRoute>
-    <TravelRouteID>7</TravelRouteID>
-    <x_cordinate_ofDeparture>10.1234560000</x_cordinate_ofDeparture>
-    <y_cordinate_ofDeparture>10.1234560000</y_cordinate_ofDeparture>
-    <x_cordinate_ofArrival>10.1234560000</x_cordinate_ofArrival>
-    <y_cordinate_ofArrival>10.1234560000</y_cordinate_ofArrival>
-    <TotalTravelDistance>11.20</TotalTravelDistance>
-    <AverageSpeed>23.00</AverageSpeed>
-    <IDTravelWarrant>2</IDTravelWarrant>
-  </TravelRoute>
   <TravelWarrant>
     <TravelWarrantID>1</TravelWarrantID>
     <DateCreated>2020-01-10T00:00:00+01:00</DateCreated>
@@ -324,42 +229,6 @@
     <IDStatus>2</IDStatus>
     <IDDriver>2</IDDriver>
     <IDVehicle>2</IDVehicle>
-  </TravelWarrant>
-  <TravelWarrant>
-    <TravelWarrantID>3</TravelWarrantID>
-    <DateCreated>2015-04-19T00:00:00+02:00</DateCreated>
-    <StartingDate>2015-04-19T00:00:00+02:00</StartingDate>
-    <EndingDate>2015-04-21T00:00:00+02:00</EndingDate>
-    <IDStatus>2</IDStatus>
-    <IDDriver>3</IDDriver>
-    <IDVehicle>3</IDVehicle>
-  </TravelWarrant>
-  <TravelWarrant>
-    <TravelWarrantID>10</TravelWarrantID>
-    <DateCreated>2020-09-01T00:00:00+02:00</DateCreated>
-    <StartingDate>2020-10-01T00:00:00+02:00</StartingDate>
-    <EndingDate>2020-09-01T00:00:00+02:00</EndingDate>
-    <IDStatus>1</IDStatus>
-    <IDDriver>1</IDDriver>
-    <IDVehicle>1</IDVehicle>
-  </TravelWarrant>
-  <TravelWarrant>
-    <TravelWarrantID>11</TravelWarrantID>
-    <DateCreated>2020-09-01T00:00:00+02:00</DateCreated>
-    <StartingDate>2020-10-01T00:00:00+02:00</StartingDate>
-    <EndingDate>2020-09-01T00:00:00+02:00</EndingDate>
-    <IDStatus>1</IDStatus>
-    <IDDriver>1</IDDriver>
-    <IDVehicle>1</IDVehicle>
-  </TravelWarrant>
-  <TravelWarrant>
-    <TravelWarrantID>15</TravelWarrantID>
-    <DateCreated>2020-07-01T00:00:00+02:00</DateCreated>
-    <StartingDate>2020-10-01T00:00:00+02:00</StartingDate>
-    <EndingDate>2020-11-01T00:00:00+01:00</EndingDate>
-    <IDStatus>1</IDStatus>
-    <IDDriver>1</IDDriver>
-    <IDVehicle>1</IDVehicle>
   </TravelWarrant>
   <Vehicle>
     <VehicleID>1</VehicleID>
@@ -384,13 +253,5 @@
     <ProductionYear>2016-01-01T00:00:00+01:00</ProductionYear>
     <StartingKilometers>2000</StartingKilometers>
     <CurrentKilometers>2100</CurrentKilometers>
-  </Vehicle>
-  <Vehicle>
-    <VehicleID>7</VehicleID>
-    <VehicleType>test</VehicleType>
-    <VehicleBrand>test</VehicleBrand>
-    <ProductionYear>1998-01-01T00:00:00+01:00</ProductionYear>
-    <StartingKilometers>123</StartingKilometers>
-    <CurrentKilometers>123</CurrentKilometers>
   </Vehicle>
 </NewDataSet>
