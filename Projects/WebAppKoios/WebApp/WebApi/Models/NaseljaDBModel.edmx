@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NaseljaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Drzava">
+          <Key>
+            <PropertyRef Name="DrzavaID" />
+          </Key>
+          <Property Name="DrzavaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Naselje">
+          <Key>
+            <PropertyRef Name="NaseljeID" />
+          </Key>
+          <Property Name="NaseljeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv" Type="nvarchar" MaxLength="200" />
+          <Property Name="PostanskiBroj" Type="nvarchar" MaxLength="200" />
+          <Property Name="IDDrzava" Type="int" />
+        </EntityType>
+        <Association Name="FK__Naselje__IDDrzav__267ABA7A">
+          <End Role="Drzava" Type="Self.Drzava" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Naselje" Type="Self.Naselje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Drzava">
+              <PropertyRef Name="DrzavaID" />
+            </Principal>
+            <Dependent Role="Naselje">
+              <PropertyRef Name="IDDrzava" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="delete_naselje" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="naselje_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="insert_dummy_data" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="insert_naselje" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="naziv" Type="nvarchar" Mode="In" />
+          <Parameter Name="postanski_broj" Type="nvarchar" Mode="In" />
+          <Parameter Name="id_drzava" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="NaseljaDBModelStoreContainer">
+          <EntitySet Name="Drzava" EntityType="Self.Drzava" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Naselje" EntityType="Self.Naselje" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Naselje__IDDrzav__267ABA7A" Association="Self.FK__Naselje__IDDrzav__267ABA7A">
+            <End Role="Drzava" EntitySet="Drzava" />
+            <End Role="Naselje" EntitySet="Naselje" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NaseljaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Drzava">
+          <Key>
+            <PropertyRef Name="DrzavaID" />
+          </Key>
+          <Property Name="DrzavaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Naselje" Relationship="Self.FK__Naselje__IDDrzav__267ABA7A" FromRole="Drzava" ToRole="Naselje" />
+        </EntityType>
+        <EntityType Name="Naselje">
+          <Key>
+            <PropertyRef Name="NaseljeID" />
+          </Key>
+          <Property Name="NaseljeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PostanskiBroj" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IDDrzava" Type="Int32" />
+          <NavigationProperty Name="Drzava" Relationship="Self.FK__Naselje__IDDrzav__267ABA7A" FromRole="Naselje" ToRole="Drzava" />
+        </EntityType>
+        <Association Name="FK__Naselje__IDDrzav__267ABA7A">
+          <End Role="Drzava" Type="Self.Drzava" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Naselje" Type="Self.Naselje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Drzava">
+              <PropertyRef Name="DrzavaID" />
+            </Principal>
+            <Dependent Role="Naselje">
+              <PropertyRef Name="IDDrzava" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NaseljaDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Drzava" EntityType="Self.Drzava" />
+          <EntitySet Name="Naselje" EntityType="Self.Naselje" />
+          <AssociationSet Name="FK__Naselje__IDDrzav__267ABA7A" Association="Self.FK__Naselje__IDDrzav__267ABA7A">
+            <End Role="Drzava" EntitySet="Drzava" />
+            <End Role="Naselje" EntitySet="Naselje" />
+          </AssociationSet>
+          <FunctionImport Name="delete_naselje">
+            <Parameter Name="naselje_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insert_dummy_data" />
+          <FunctionImport Name="insert_naselje">
+            <Parameter Name="naziv" Mode="In" Type="String" />
+            <Parameter Name="postanski_broj" Mode="In" Type="String" />
+            <Parameter Name="id_drzava" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NaseljaDBModelStoreContainer" CdmEntityContainer="NaseljaDBEntities">
+          <EntitySetMapping Name="Drzava">
+            <EntityTypeMapping TypeName="NaseljaDBModel.Drzava">
+              <MappingFragment StoreEntitySet="Drzava">
+                <ScalarProperty Name="DrzavaID" ColumnName="DrzavaID" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Naselje">
+            <EntityTypeMapping TypeName="NaseljaDBModel.Naselje">
+              <MappingFragment StoreEntitySet="Naselje">
+                <ScalarProperty Name="NaseljeID" ColumnName="NaseljeID" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="PostanskiBroj" ColumnName="PostanskiBroj" />
+                <ScalarProperty Name="IDDrzava" ColumnName="IDDrzava" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="delete_naselje" FunctionName="NaseljaDBModel.Store.delete_naselje" />
+          <FunctionImportMapping FunctionImportName="insert_dummy_data" FunctionName="NaseljaDBModel.Store.insert_dummy_data" />
+          <FunctionImportMapping FunctionImportName="insert_naselje" FunctionName="NaseljaDBModel.Store.insert_naselje" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

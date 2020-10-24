@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NaseljaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Drzava">
+    <Key>
+      <PropertyRef Name="DrzavaID" />
+    </Key>
+    <Property Name="DrzavaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Naselje" Relationship="Self.FK__Naselje__IDDrzav__398D8EEE" FromRole="Drzava" ToRole="Naselje" />
+  </EntityType>
+  <EntityType Name="Naselje">
+    <Key>
+      <PropertyRef Name="NaseljeID" />
+    </Key>
+    <Property Name="NaseljeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PostanskiBroj" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IDDrzava" Type="Int32" />
+    <NavigationProperty Name="Drzava" Relationship="Self.FK__Naselje__IDDrzav__398D8EEE" FromRole="Naselje" ToRole="Drzava" />
+  </EntityType>
+  <Association Name="FK__Naselje__IDDrzav__398D8EEE">
+    <End Role="Drzava" Type="Self.Drzava" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Naselje" Type="Self.Naselje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drzava">
+        <PropertyRef Name="DrzavaID" />
+      </Principal>
+      <Dependent Role="Naselje">
+        <PropertyRef Name="IDDrzava" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NaseljaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Drzava" EntityType="Self.Drzava" />
+    <EntitySet Name="Naselje" EntityType="Self.Naselje" />
+    <AssociationSet Name="FK__Naselje__IDDrzav__398D8EEE" Association="Self.FK__Naselje__IDDrzav__398D8EEE">
+      <End Role="Drzava" EntitySet="Drzava" />
+      <End Role="Naselje" EntitySet="Naselje" />
+    </AssociationSet>
+    <FunctionImport Name="delete_naselje">
+      <Parameter Name="naselje_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insert_dummy_data" />
+    <FunctionImport Name="insert_naselje">
+      <Parameter Name="naziv" Mode="In" Type="String" />
+      <Parameter Name="postanski_broj" Mode="In" Type="String" />
+      <Parameter Name="id_drzava" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

@@ -5,10 +5,12 @@
 [CSharp Yellow Book Notes](/CSharpYellowBook)
   - Notes from CS Yellow Book book
 
-[MVC Projects](/MVC%20Projects)
-  - [Meal Planner App](/MVC%20Projects/DiabetesHelperUser)
+[MVC Projects](/Projects)
+  - [Meal Planner App](/Projects/DiabetesHelperUser)
     - Applicaion that creates weakly menus for user based on his BMI data
-  - [Rent a Vehicle App](/MVC%20Projects/PPPK_Project)
+  - [Rent a Vehicle App](/Projects/PPPK_Project)
     - Application that enables user to select free vehicle and rent it
+  - [Simple table project](/Projects/WebAppKoios)
+    - Project consisted of WebAPi and its client-side web app in mvc
     
 [Windows Forms/WPF Project](/WindowsForms)

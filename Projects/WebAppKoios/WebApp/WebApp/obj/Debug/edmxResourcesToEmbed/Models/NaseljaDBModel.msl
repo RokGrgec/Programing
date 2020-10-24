@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NaseljaModelStoreContainer" CdmEntityContainer="NaseljaEntities">
+    <EntitySetMapping Name="Drzava">
+      <EntityTypeMapping TypeName="NaseljaModel.Drzava">
+        <MappingFragment StoreEntitySet="Drzava">
+          <ScalarProperty Name="DrzavaID" ColumnName="DrzavaID" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Naselje">
+      <EntityTypeMapping TypeName="NaseljaModel.Naselje">
+        <MappingFragment StoreEntitySet="Naselje">
+          <ScalarProperty Name="NaseljeID" ColumnName="NaseljeID" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          <ScalarProperty Name="PostanskiBroj" ColumnName="PostanskiBroj" />
+          <ScalarProperty Name="IDDrzava" ColumnName="IDDrzava" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="delete_naselje" FunctionName="NaseljaModel.Store.delete_naselje" />
+    <FunctionImportMapping FunctionImportName="insert_dummy_data" FunctionName="NaseljaModel.Store.insert_dummy_data" />
+    <FunctionImportMapping FunctionImportName="insert_naselje" FunctionName="NaseljaModel.Store.insert_naselje" />
+  </EntityContainerMapping>
+</Mapping>

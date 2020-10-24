@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NaseljaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Drzava">
+    <Key>
+      <PropertyRef Name="DrzavaID" />
+    </Key>
+    <Property Name="DrzavaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Naziv" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Naselje">
+    <Key>
+      <PropertyRef Name="NaseljeID" />
+    </Key>
+    <Property Name="NaseljeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Naziv" Type="nvarchar" MaxLength="200" />
+    <Property Name="PostanskiBroj" Type="nvarchar" MaxLength="200" />
+    <Property Name="IDDrzava" Type="int" />
+  </EntityType>
+  <Association Name="FK__Naselje__IDDrzav__267ABA7A">
+    <End Role="Drzava" Type="Self.Drzava" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Naselje" Type="Self.Naselje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drzava">
+        <PropertyRef Name="DrzavaID" />
+      </Principal>
+      <Dependent Role="Naselje">
+        <PropertyRef Name="IDDrzava" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="delete_naselje" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="naselje_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="insert_dummy_data" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="insert_naselje" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="naziv" Type="nvarchar" Mode="In" />
+    <Parameter Name="postanski_broj" Type="nvarchar" Mode="In" />
+    <Parameter Name="id_drzava" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="NaseljaDBModelStoreContainer">
+    <EntitySet Name="Drzava" EntityType="Self.Drzava" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Naselje" EntityType="Self.Naselje" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Naselje__IDDrzav__267ABA7A" Association="Self.FK__Naselje__IDDrzav__267ABA7A">
+      <End Role="Drzava" EntitySet="Drzava" />
+      <End Role="Naselje" EntitySet="Naselje" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,56 @@
+﻿@model WebApp.Models.NaseljeViewModel
+<h2>Delete Naselje</h2>
+@using (Html.BeginForm("delete", "home", FormMethod.Post, new { id = "popupForm" }))
+{
+    @Html.HiddenFor(a => a.NaseljeID)
+    <div class="form-group">
+        <label>Naziv</label>
+        <p>@Model.Naziv</p>
+    </div>
+
+    <div class="form-group">
+        <label>Postanski broj</label>
+        <p>@Model.PostanskiBroj</p>
+    </div>
+    if (Model.IDDrzava == 1)
+    {
+        <div class="form-group">
+            <label>Drzava</label>
+            <p>Hrvatska</p>
+        </div>
+
+    }
+    else if (Model.IDDrzava == 2)
+    {
+        <div class="form-group">
+            <label>Drzava</label>
+            <p>Srbija</p>
+        </div>
+    }
+    else if (Model.IDDrzava == 3)
+    {
+        <div class="form-group">
+            <label>Drzava</label>
+            <p>Slovenija</p>
+        </div>
+    }
+    else if (Model.IDDrzava == 4)
+    {
+        <div class="form-group">
+            <label>Drzava</label>
+            <p>Italija</p>
+        </div>
+    }
+    else if (Model.IDDrzava == 5)
+    {
+        <div class="form-group">
+            <label>Drzava</label>
+            <p>Bosna i Hercegovina</p>
+        </div>
+    }
+
+
+    <div>
+        <input type="submit" value="Delete" />
+    </div>
+}

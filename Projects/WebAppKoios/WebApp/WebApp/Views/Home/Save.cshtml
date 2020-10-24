@@ -1,0 +1,30 @@
+﻿@model WebApp.Models.NaseljeViewModel
+<h2>Save</h2>
+@using (Html.BeginForm("save", "home", FormMethod.Post, new { id = "popupForm" }))
+{
+    if (Model != null && Model.NaseljeID > 0)
+    {
+        @Html.HiddenFor(a => a.NaseljeID)
+    }
+
+    <div class="form-group">
+        <label>Naselje</label>
+        @Html.TextBoxFor(a => a.Naziv, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Naziv)
+    </div>
+    <div class="form-group">
+        <label>Postanski broj</label>
+        @Html.TextBoxFor(a => a.PostanskiBroj, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.PostanskiBroj)
+    </div>
+    <div class="form-group">
+        <label>Drzava</label>
+        @Html.TextBoxFor(a => a.IDDrzava, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.IDDrzava)
+    </div>
+
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+
+}
