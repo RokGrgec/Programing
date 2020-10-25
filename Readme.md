@@ -10,7 +10,7 @@
     - Applicaion that creates weakly menus for user based on his BMI data
   - [Rent a Vehicle App](/Projects/PPPK_Project)
     - Application that enables user to select free vehicle and rent it
-  - [Simple table project](/Projects/WebAppKoios)
+  - [Simple table project](/Projects/WebAppTable)
     - Project consisted of WebAPi and its client-side web app in mvc
     
 [Windows Forms/WPF Project](/WindowsForms)
