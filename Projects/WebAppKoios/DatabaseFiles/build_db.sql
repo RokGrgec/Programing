@@ -55,21 +55,3 @@ go
 
 exec insert_dummy_data
 go
-
---create proc reset_db
---as
---	delete from Naselje
---	delete from Drzava
---go
-
---exec reset_db
-
---exec insert_naselje 'test', '1234', 1
-
---select * from Drzava
-
---exec delete_naselje 16
-
---select * from Naselje
-
---delete from Naselje where NaseljeID = 1013

@@ -37,6 +37,7 @@ namespace WebApp.Controllers
 
                     naselje = readTask.Result;
                 }
+
                 return View(naselje);
             }
         }
